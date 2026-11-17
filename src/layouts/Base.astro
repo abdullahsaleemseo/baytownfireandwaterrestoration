@@ -19,6 +19,8 @@ interface Props {
   path?: string;
 }
 const { title, description, offer = 'water', crumbs, faqs, service, preloadImage, ogImage, noindex = false } = Astro.props;
+// Site-wide staging switch: set "noindex": false in src/config/site.json when ready to launch.
+const siteNoindex = SITE.noindex === true;
 const path = Astro.props.path ?? Astro.url.pathname;
 const canonical = SITE.url + path;
 const p = phone(offer);
@@ -33,6 +35,7 @@ const graph = buildGraph({ path, title, description, crumbs, faqs, service: serv
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
+    {siteNoindex && !noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#0D0D0D" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png" />

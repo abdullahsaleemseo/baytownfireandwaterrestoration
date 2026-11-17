@@ -29,13 +29,31 @@ Everything lives in **`src/config/site.json`**. Replace each `{{...}}` value, th
 
 Phone numbers are never written in pages. They come from `site.json` through `src/lib/site.ts` and `src/components/CallButton.astro`. Each layout takes an `offer` prop (`water` default, `fire` on the fire page).
 
-## Deploy to Hostinger
+## Staging mode (noindex)
 
-1. `npm run build`
-2. Upload the **contents** of `dist/` (including the hidden `.htaccess`) to `public_html`.
-3. `.htaccess` forces https and non-www, and serves `404.html`.
-4. The contact form posts to `/api/contact.php`, which uses PHP `mail()`. Create the mailbox in `email` and a `no-reply@` address on the domain in hPanel so mail is delivered.
-5. Add the site to Google Search Console and submit `https://baytownfireandwaterrestoration.com/sitemap.xml`.
+`"noindex": true` in `src/config/site.json` adds a `noindex, nofollow` tag to every page and removes the sitemap line from `robots.txt`. Set it to `false` when the placeholders are filled and the site is ready to be indexed, then submit the sitemap in Google Search Console.
+
+## Deploy to Hostinger through Git
+
+Hostinger shared hosting cannot run the Astro build, so GitHub builds it:
+
+1. Every push to `main` or `claude/gallant-carson-sg8zly` runs `.github/workflows/deploy-hostinger.yml`.
+2. The workflow builds the site, runs the checks, and commits the contents of `dist/` to the **`hostinger`** branch.
+3. Hostinger's Git feature deploys the `hostinger` branch into `public_html`.
+
+One-time setup in Hostinger hPanel (Websites > Manage > Advanced > Git):
+
+1. Copy the SSH key hPanel shows and add it in GitHub: repo Settings > Deploy keys > Add deploy key (read-only is enough). Needed because the repository is private.
+2. Create the repository in hPanel: URL `git@github.com:abdullahsaleemseo/baytownfireandwaterrestoration.git`, branch `hostinger`, install path left empty (`public_html`, which must be empty first).
+3. Turn on Auto Deployment: copy the webhook URL from hPanel and add it in GitHub: repo Settings > Webhooks > Add webhook, content type `application/json`, "Just the push event".
+
+After that, any change pushed to the working branch goes live within a couple of minutes.
+
+Manual alternative: run `npm run build` and upload the contents of `dist/` (including the hidden `.htaccess`) to `public_html`.
+
+Notes:
+- `.htaccess` forces https and non-www, and serves `404.html`.
+- The contact form posts to `/api/contact.php`, which uses PHP `mail()`. Create the mailbox in `email` and a `no-reply@` address on the domain in hPanel so mail is delivered.
 
 ## Analytics
 

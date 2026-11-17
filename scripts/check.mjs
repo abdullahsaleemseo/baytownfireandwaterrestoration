@@ -19,6 +19,7 @@ const head = (m) => console.log('\n== ' + m);
 
 // ---------------------------------------------------------------- placeholders
 head('Placeholders still to fill (src/config/site.json)');
+if (site.noindex) console.log('  NOTE  STAGING MODE: "noindex": true, so every page tells search engines not to index it. Set it to false to launch.');
 const placeholders = Object.entries(site).filter(([, v]) => typeof v === 'string' && /\{\{.+\}\}/.test(v));
 if (placeholders.length) placeholders.forEach(([k, v]) => console.log(`  TODO  ${k} = ${v}`));
 else ok('none left');
@@ -55,7 +56,8 @@ for (const p of pages) {
   if (h1s !== 1) probs.push(`${h1s} h1`);
   if (is404(p)) { if (!noindex) probs.push('404 should be noindex'); }
   else {
-    if (noindex) probs.push('noindex present');
+    if (noindex && !site.noindex) probs.push('noindex present');
+    if (!noindex && site.noindex) probs.push('staging mode but page is missing noindex');
     if (canon !== site.url + p.url) probs.push(`canonical ${canon}`);
     if (titles.has(t)) probs.push(`duplicate title with ${titles.get(t)}`); titles.set(t, p.url);
     if (descs.has(d)) probs.push(`duplicate description with ${descs.get(d)}`); descs.set(d, p.url);
@@ -125,7 +127,8 @@ head('Sitemap and robots.txt');
   const missing = indexable.filter((u) => !locs.includes(u)), extra = locs.filter((u) => !indexable.includes(u));
   missing.length || extra.length ? fail(`sitemap mismatch. missing: ${missing} extra: ${extra}`) : ok(`sitemap.xml lists all ${locs.length} indexable pages`);
   const rb = existsSync(join(DIST, 'robots.txt')) ? readFileSync(join(DIST, 'robots.txt'), 'utf8') : '';
-  /Sitemap: https:\/\//.test(rb) && !/Disallow: \/\s*$/m.test(rb) ? ok('robots.txt allows crawling and points to the sitemap') : fail('robots.txt problem');
+  if (site.noindex) { !/Disallow: \/\s*$/m.test(rb) ? ok('robots.txt allows crawling (staging: sitemap not advertised)') : fail('robots.txt problem'); }
+  else /Sitemap: https:\/\//.test(rb) && !/Disallow: \/\s*$/m.test(rb) ? ok('robots.txt allows crawling and points to the sitemap') : fail('robots.txt problem');
 }
 
 // ---------------------------------------------------------------- schema

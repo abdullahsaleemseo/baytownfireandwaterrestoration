@@ -11,8 +11,13 @@
   "launchYear": "2026",
   "city": "Baytown",
   "state": "TX",
-  "zips": ["77520", "77521", "77523"],
+  "zips": [
+    "77520",
+    "77521",
+    "77523"
+  ],
   "social": [],
   "lastUpdated": "2026-11-17",
-  "formEndpoint": "/api/contact.php"
+  "formEndpoint": "/api/contact.php",
+  "noindex": true
 }
