@@ -214,14 +214,14 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 42vw';
       <div class="section-head">
         <p class="eyebrow">Signs you need restoration</p>
         <h2>What water and fire damage <em>look like</em></h2>
-        <p>Photos from public sources, for illustration. They are not pictures of our work, because we do not do the work.</p>
+        <p>Images for illustration. They are not pictures of our work, because we do not do the work.</p>
       </div>
       <ul class="gallery">
         {IMG.grid.map((g) => (
           <li>
             <figure>
               <Image src={g.src} alt={g.alt} width={600} widths={[360, 600, 900]} sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 30vw" quality={58} loading="lazy" />
-              <figcaption><b>{g.title}</b>{g.caption}<small>Photo: {g.credit}</small></figcaption>
+              <figcaption><b>{g.title}</b>{g.caption}<small>{g.credit === 'Illustration' ? 'For illustration only' : `Photo: ${g.credit}`}</small></figcaption>
             </figure>
           </li>
         ))}
@@ -265,6 +265,7 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 42vw';
   <section class="section bg-dark">
     <div class="wrap dark-split">
       <div class="panel panel--fire">
+        <Image class="panel__img" src={IMG.firePanel.src} alt={IMG.firePanel.alt} width={800} widths={[480, 800, 1100]} sizes="(max-width: 980px) 100vw, 44vw" quality={60} loading="lazy" />
         <p class="panel__label"><Icon name="flame" />Fire damage line</p>
         <h2>Fire or <em>smoke damage?</em></h2>
         <p>
@@ -300,7 +301,7 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 42vw';
   <!-- 10. FAQ -->
   <section class="section bg-light">
     <div class="wrap">
-      <div class="section-head" style="max-width:56rem;margin-left:auto;margin-right:auto">
+      <div class="section-head" style="max-width:64rem;margin-left:auto;margin-right:auto">
         <p class="eyebrow">Common questions</p>
         <h2>Baytown restoration <em>FAQ</em></h2>
       </div>
