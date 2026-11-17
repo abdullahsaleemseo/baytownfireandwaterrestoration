@@ -2,7 +2,7 @@
    Baytown Fire and Water Restoration: global styles
    Visual system: white header, near-black hero and bands, cool light-grey
    sections, one blue accent, square corners, uppercase condensed headings.
-     --blue       #0074D4  accent, buttons, links on light (4.7:1 with white)
+     --blue       #0069C2  accent, buttons, links (5.5:1 on white, 5.0:1 on light grey)
      --blue-lite  #4FA8F0  accent text on dark backgrounds
      --fire       #C2410C  small secondary accent used only for fire labels
    ========================================================================== */
@@ -30,8 +30,8 @@
 }
 
 :root {
-  --blue: #0074d4;
-  --blue-dark: #005aa6;
+  --blue: #0069c2;
+  --blue-dark: #004f94;
   --blue-lite: #4fa8f0;
   --fire: #c2410c;
   --ink: #0d0d0d;
@@ -251,6 +251,7 @@ figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
 .area__head p { margin: 0; font-size: 0.9rem; }
 .dotlist { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 22px; }
 .dotlist li { margin: 0; padding: 11px 0 11px 20px; border-bottom: 1px solid var(--line); position: relative; font-size: 0.93rem; }
+.dotlist a { display: flex; align-items: center; min-height: 44px; margin: -11px 0; }
 .dotlist li::before { content: ''; position: absolute; left: 4px; top: 50%; width: 6px; height: 6px; background: var(--blue); transform: translateY(-50%) rotate(45deg); }
 
 /* FAQ ----------------------------------------------------------------- */
