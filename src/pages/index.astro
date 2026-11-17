@@ -40,7 +40,7 @@ const faqs = [
 const heroOpt = await getImage({ src: IMG.hero.src, width: 900, format: 'webp', quality: 62 });
 const heroSm = await getImage({ src: IMG.hero.src, width: 560, format: 'webp', quality: 60 });
 const heroSrcset = `${heroSm.src} 560w, ${heroOpt.src} 900w`;
-const heroSizes = '(max-width: 980px) calc(100vw - 64px), 540px';
+const heroSizes = '(max-width: 980px) calc(100vw - 64px), 42vw';
 ---
 <Base
   title="Baytown Fire and Water Restoration | Water Damage Help"
@@ -117,7 +117,7 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 540px';
       <article class="feature">
         <div class="feature__img">
           <span class="tag-flag">Most common</span>
-          <Image src={IMG.water.src} alt={IMG.water.alt} width={760} widths={[480, 760]} sizes="(max-width: 980px) 100vw, 640px" quality={60} loading="lazy" />
+          <Image src={IMG.water.src} alt={IMG.water.alt} width={760} widths={[480, 760, 1100]} sizes="(max-width: 980px) 100vw, 50vw" quality={60} loading="lazy" />
         </div>
         <div class="feature__body">
           <h3>Water <em>Damage Restoration</em></h3>
@@ -131,7 +131,7 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 540px';
 
       <ul class="cards">
         <li class="card">
-          <Image src={IMG.fire.src} alt={IMG.fire.alt} width={640} widths={[400, 640]} sizes="(max-width: 640px) 100vw, 380px" quality={60} loading="lazy" />
+          <Image src={IMG.fire.src} alt={IMG.fire.alt} width={640} widths={[400, 640, 900]} sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 30vw" quality={60} loading="lazy" />
           <div class="card__body">
             <h3>Fire and Smoke Damage</h3>
             <p>Soot, smoke odor and the water left behind by firefighting. What to leave alone, and what cleanup involves.</p>
@@ -139,7 +139,7 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 540px';
           </div>
         </li>
         <li class="card">
-          <Image src={IMG.pipe.src} alt={IMG.pipe.alt} width={640} widths={[400, 640]} sizes="(max-width: 640px) 100vw, 380px" quality={60} loading="lazy" />
+          <Image src={IMG.pipe.src} alt={IMG.pipe.alt} width={640} widths={[400, 640, 900]} sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 30vw" quality={60} loading="lazy" />
           <div class="card__body">
             <h3>Burst Pipes and Flooding</h3>
             <p>Frozen pipes, failed supply lines, water heaters and slab leaks. Start with the shutoff valve, then follow these steps.</p>
@@ -176,7 +176,7 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 540px';
         <p class="eyebrow">About us</p>
         <h2>An honest <em>local help line</em></h2>
         <figure>
-          <Image src={IMG.about.src} alt={IMG.about.alt} width={700} widths={[420, 700]} sizes="(max-width: 980px) 100vw, 440px" quality={60} loading="lazy" />
+          <Image src={IMG.about.src} alt={IMG.about.alt} width={700} widths={[420, 700, 1000]} sizes="(max-width: 980px) 100vw, 36vw" quality={60} loading="lazy" />
           <figcaption>{IMG.about.caption}</figcaption>
         </figure>
         <p class="why__quote">
@@ -220,7 +220,7 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 540px';
         {IMG.grid.map((g) => (
           <li>
             <figure>
-              <Image src={g.src} alt={g.alt} width={600} widths={[360, 600]} sizes="(max-width: 640px) 100vw, 380px" quality={58} loading="lazy" />
+              <Image src={g.src} alt={g.alt} width={600} widths={[360, 600, 900]} sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 30vw" quality={58} loading="lazy" />
               <figcaption><b>{g.title}</b>{g.caption}<small>Photo: {g.credit}</small></figcaption>
             </figure>
           </li>
@@ -300,7 +300,7 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 540px';
   <!-- 10. FAQ -->
   <section class="section bg-light">
     <div class="wrap">
-      <div class="section-head" style="max-width:880px;margin-left:auto;margin-right:auto">
+      <div class="section-head" style="max-width:56rem;margin-left:auto;margin-right:auto">
         <p class="eyebrow">Common questions</p>
         <h2>Baytown restoration <em>FAQ</em></h2>
       </div>
