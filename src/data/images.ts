@@ -31,8 +31,8 @@ export const IMG = {
   hero: {
     src: dryingLiving,
     alt: 'Air movers and a dehumidifier drying a wet hardwood floor in a living room while a technician checks moisture at the wall',
-    short: 'Drying a water-damaged living room',
-    credit: 'For illustration only',
+    short: 'Drying a wet living room floor',
+    credit: 'Water · Fire · Smoke',
   },
   water: { src: meterWall, alt: 'Gloved hand holding a moisture meter against a water-stained wall with the drywall cut open near the floor' },
   fire: { src: sootKitchen, alt: 'Kitchen cabinets, range hood and tile backsplash blackened with soot after a stove fire, with a worker in a mask taking notes' },
@@ -42,7 +42,7 @@ export const IMG = {
     alt: 'The Fred Hartman Bridge seen across the water from a marina in Baytown, Texas',
     caption: 'The Fred Hartman Bridge at Baytown. Photo: Patrick Feller, CC BY 2.0.',
   },
-  // Illustrations supplied by the site owner (faces blurred). Used inside service pages.
+  // Images supplied by the site owner (faces blurred). Used inside service pages.
   firePanel: { src: garageFire, alt: 'Two firefighters in breathing apparatus spraying water into a burning garage attached to a house' },
   figs: {
     extraction: { src: extraction, alt: 'Workers using wet vacuums to extract standing water from a warehouse concrete floor, with a dehumidifier in the foreground', caption: 'Extraction comes first: wet vacuums pull standing water off the floor before drying equipment takes over.' },

@@ -7,5 +7,5 @@ const f = IMG.figs[Astro.props.name];
 ---
 <figure>
   <Image src={f.src} alt={f.alt} width={800} widths={[480, 800, 1200, 1536]} sizes="(max-width: 980px) 100vw, 56vw" quality={60} loading="lazy" />
-  <figcaption>{f.caption} For illustration only.</figcaption>
+  <figcaption>{f.caption}</figcaption>
 </figure>
