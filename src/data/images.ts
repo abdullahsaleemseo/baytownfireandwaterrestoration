@@ -1,7 +1,11 @@
 // Every photo used on the site, with alt text and credit.
 // Sources and licenses: CREDITS.md and src/data/credits.json (shown on /disclaimer/).
-import drying from '../assets/images/drying-equipment-flood-damaged-floor.jpg';
-import ceilingTile from '../assets/images/water-stained-ceiling-tile.jpg';
+import dryingLiving from '../assets/images/air-movers-dehumidifier-drying-living-room-floor.jpg';
+import meterWall from '../assets/images/moisture-meter-on-water-damaged-wall.jpg';
+import dryingOffice from '../assets/images/air-movers-drying-wet-office-floor.jpg';
+import movingFurniture from '../assets/images/moving-furniture-off-wet-hardwood-floor.jpg';
+import meterFloor from '../assets/images/moisture-meter-on-buckled-hardwood-floor.jpg';
+import blocks from '../assets/images/air-movers-and-furniture-blocks-on-wet-floor.jpg';
 import fireRoom from '../assets/images/fire-damaged-room-interior.jpg';
 import pipe from '../assets/images/leaking-pipe-under-sink.jpg';
 import bridge from '../assets/images/fred-hartman-bridge-baytown.jpg';
@@ -13,18 +17,25 @@ import stain from '../assets/images/brown-water-stain-on-ceiling.jpg';
 
 export const IMG = {
   hero: {
-    src: drying,
-    alt: 'Dehumidifiers and air movers drying a flood-damaged floor with the flooring partly removed',
-    short: 'Drying equipment after a flood',
-    credit: 'Photo: FEMA / Mark Wolfe',
+    src: dryingLiving,
+    alt: 'Air movers and a dehumidifier drying a wet hardwood floor in a living room while a technician checks moisture at the wall',
+    short: 'Drying a water-damaged living room',
+    credit: 'AI-generated image',
   },
-  water: { src: ceilingTile, alt: 'Ceiling tile stained and crumbling after a pipe leaked above it' },
+  water: { src: meterWall, alt: 'Gloved hand holding a moisture meter against a water-stained wall with the drywall cut open near the floor' },
   fire: { src: fireRoom, alt: 'Room interior blackened by fire, with charred walls and debris on the floor' },
   pipe: { src: pipe, alt: 'Water dripping from a leaking P-trap pipe under a bathroom sink' },
   about: {
     src: bridge,
     alt: 'The Fred Hartman Bridge seen across the water from a marina in Baytown, Texas',
     caption: 'The Fred Hartman Bridge at Baytown. Photo: Patrick Feller, CC BY 2.0.',
+  },
+  // Illustrations supplied by the site owner (AI-generated; faces blurred). Used inside service pages.
+  figs: {
+    waterFloor: { src: meterFloor, alt: 'Moisture meter probes pressed into a buckled, water-stained hardwood floor with an air mover running behind', caption: 'Checking moisture in a buckled hardwood floor. Drying is finished when readings match the dry parts of the house.' },
+    burstPipe: { src: movingFurniture, alt: 'Worker lifting a side table off a wet hardwood floor beside a rolled-up rug, with air movers and a dehumidifier running', caption: 'After a leak: furniture lifted off the wet floor, the rug rolled up, and drying equipment running.' },
+    flood: { src: blocks, alt: 'Standing water on a living room floor with sofa and table legs raised on foam blocks and air movers running', caption: 'Furniture raised on blocks above standing water while air movers run.' },
+    mold: { src: dryingOffice, alt: 'Row of air movers and a dehumidifier drying a wet concrete floor in an empty office', caption: 'Air movers and a dehumidifier drying a wet floor. Fast drying is the main defense against mold.' },
   },
   grid: [
     { src: stain, title: 'Brown ceiling stains', caption: 'Discoloration like this means water got in above, often from a roof leak or an air conditioner drain.', alt: 'Brown water stain along the edge of a textured ceiling', credit: 'Ed!, CC BY-SA 3.0' },

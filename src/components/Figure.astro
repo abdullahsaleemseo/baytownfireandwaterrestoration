@@ -1,0 +1,11 @@
+---
+// In-article illustration. Images come from src/data/images.ts (IMG.figs).
+import { Image } from 'astro:assets';
+import { IMG } from '../data/images';
+interface Props { name: keyof typeof IMG.figs }
+const f = IMG.figs[Astro.props.name];
+---
+<figure>
+  <Image src={f.src} alt={f.alt} width={800} widths={[480, 800, 1200]} sizes="(max-width: 980px) 100vw, 50rem" quality={60} loading="lazy" />
+  <figcaption>{f.caption} Illustration (AI-generated image).</figcaption>
+</figure>

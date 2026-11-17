@@ -1,13 +1,17 @@
 # Image and asset credits
 
-All photographs come from Wikimedia Commons and are used under the licenses below. They are illustrations only. None shows work by this site or by any specific restoration company, and none was taken from a restoration company or from the design reference sites.
+Images are either AI-generated illustrations supplied by the site owner or photographs from Wikimedia Commons used under the licenses below. All are illustrations only, and AI-generated images are labeled as such on the site. None shows work by this site or by any specific restoration company, and none was taken from a restoration company or from the design reference sites.
 
 Files live in `src/assets/images/`. Astro converts them to WebP at build time.
 
 | File | Shows | Source | Author | License | Changes |
 |---|---|---|---|---|---|
-| `drying-equipment-flood-damaged-floor.jpg` | Drying equipment (home page hero) | [FEMA - 31974 - School Clean Up in Ohio](https://commons.wikimedia.org/wiki/File:FEMA_-_31974_-_School_Clean_Up_in_Ohio.jpg) | Mark Wolfe / FEMA | Public domain (U.S. federal government work) | Cropped and resized. |
-| `water-stained-ceiling-tile.jpg` | Water-damaged ceiling tile | [Ceiling water damage](https://commons.wikimedia.org/wiki/File:Ceiling_water_damage.jpg) | Atomicdragon136 | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) | Resized. |
+| `air-movers-dehumidifier-drying-living-room-floor.jpg` | Drying a living room (home page hero) | Supplied by the site owner | AI-generated (ChatGPT image generation) | Owner's own generated image | Faces blurred where visible; resized. Original provenance metadata is not carried into the published WebP files. |
+| `moisture-meter-on-water-damaged-wall.jpg` | Moisture meter on a water-damaged wall | Supplied by the site owner | AI-generated (ChatGPT image generation) | Owner's own generated image | Faces blurred where visible; resized. Original provenance metadata is not carried into the published WebP files. |
+| `moisture-meter-on-buckled-hardwood-floor.jpg` | Moisture meter on a buckled floor | Supplied by the site owner | AI-generated (ChatGPT image generation) | Owner's own generated image | Faces blurred where visible; resized. Original provenance metadata is not carried into the published WebP files. |
+| `moving-furniture-off-wet-hardwood-floor.jpg` | Moving furniture off a wet floor | Supplied by the site owner | AI-generated (ChatGPT image generation) | Owner's own generated image | Faces blurred where visible; resized. Original provenance metadata is not carried into the published WebP files. |
+| `air-movers-and-furniture-blocks-on-wet-floor.jpg` | Furniture on blocks above standing water | Supplied by the site owner | AI-generated (ChatGPT image generation) | Owner's own generated image | Faces blurred where visible; resized. Original provenance metadata is not carried into the published WebP files. |
+| `air-movers-drying-wet-office-floor.jpg` | Air movers drying an office floor | Supplied by the site owner | AI-generated (ChatGPT image generation) | Owner's own generated image | Faces blurred where visible; resized. Original provenance metadata is not carried into the published WebP files. |
 | `fire-damaged-room-interior.jpg` | Fire-damaged room | [Burned house in Hamina, interior](https://commons.wikimedia.org/wiki/File:Burned_house_in_Hamina,_interior.JPG) | Niera | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Cropped and resized; our version is shared under the same license. |
 | `leaking-pipe-under-sink.jpg` | Leaking pipe under a sink | [Leaking PVC Pipe Under Sink - P Trap](https://commons.wikimedia.org/wiki/File:Leaking_PVC_Pipe_Under_Sink_-_P_Trap_(52842956605).jpg) | Tony Webster | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | Resized. |
 | `fred-hartman-bridge-baytown.jpg` | Fred Hartman Bridge | [Fred Hartman Bridge, Baytown, Texas](https://commons.wikimedia.org/wiki/File:Fred_Hartman_Bridge,_Baytown,_Texas_1209261519.jpg) | Patrick Feller | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | Resized. |
