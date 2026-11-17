@@ -1,0 +1,30 @@
+---
+// Inner page: banner with breadcrumbs, then free-form content in the slot.
+import Base from './Base.astro';
+import type { Offer } from '../lib/site';
+import type { Crumb, Faq } from '../lib/schema';
+interface Props {
+  title: string; description: string; h1: string; h1Html?: string; eyebrow?: string; sub?: string;
+  offer?: Offer; crumbs?: Crumb[]; faqs?: Faq[];
+}
+const { title, description, h1, h1Html, eyebrow, sub, offer = 'water', faqs } = Astro.props;
+const crumbs = Astro.props.crumbs ?? [{ name: h1, path: Astro.url.pathname }];
+---
+<Base title={title} description={description} offer={offer} crumbs={crumbs} faqs={faqs}>
+  <section class="banner">
+    <div class="wrap"><div class="banner__in">
+      <nav aria-label="Breadcrumb">
+        <ol class="crumbs">
+          <li><a href="/">Home</a></li>
+          {crumbs.map((c, i) => i === crumbs.length - 1
+            ? <li aria-current="page">{c.name}</li>
+            : <li><a href={c.path}>{c.name}</a></li>)}
+        </ol>
+      </nav>
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1 set:html={h1Html ?? h1} />
+      {sub && <p class="banner__sub">{sub}</p>}
+    </div></div>
+  </section>
+  <slot />
+</Base>

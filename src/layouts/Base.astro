@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, phone, type Offer } from '../lib/site';
+import { buildGraph, type Crumb, type Faq, type ServiceInfo } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  offer?: Offer;
+  crumbs?: Crumb[];
+  faqs?: Faq[];
+  service?: Omit<ServiceInfo, 'phoneTel'>;
+  preloadImage?: { src: string; srcset?: string; sizes?: string };
+  ogImage?: string;
+  noindex?: boolean;
+  path?: string;
+}
+const { title, description, offer = 'water', crumbs, faqs, service, preloadImage, ogImage, noindex = false } = Astro.props;
+const path = Astro.props.path ?? Astro.url.pathname;
+const canonical = SITE.url + path;
+const p = phone(offer);
+const og = SITE.url + (ogImage ?? '/og-default.jpg');
+const graph = buildGraph({ path, title, description, crumbs, faqs, service: service ? { ...service, phoneTel: p.tel } : undefined });
+---
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
+    <meta name="theme-color" content="#0D0D0D" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/titillium-web-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/work-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage.src} imagesrcset={preloadImage.srcset} imagesizes={preloadImage.sizes} fetchpriority="high" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.brandName} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og} />
+    {!noindex && <script type="application/ld+json" set:html={JSON.stringify(graph)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header offer={offer} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer offer={offer} />
+    <div class="callbar">
+      <a href={p.tel} data-offer={p.offer} data-call-location="mobile-bar"><Icon name="phone" /><span>Call now: {offer === 'fire' ? 'fire damage line' : 'water damage line'}</span></a>
+    </div>
+    <script is:inline>
+      (function () {
+        var toggle = document.querySelector('.menu-toggle');
+        var nav = document.getElementById('site-nav');
+        if (toggle && nav) {
+          toggle.addEventListener('click', function () {
+            var open = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+          });
+        }
+        var subBtn = document.querySelector('.has-sub > button');
+        if (subBtn) {
+          var li = subBtn.parentElement;
+          var setOpen = function (open) {
+            li.classList.toggle('open', open);
+            subBtn.setAttribute('aria-expanded', String(open));
+          };
+          subBtn.addEventListener('click', function (e) { e.stopPropagation(); setOpen(!li.classList.contains('open')); });
+          document.addEventListener('click', function (e) { if (!li.contains(e.target)) setOpen(false); });
+          document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setOpen(false); } });
+        }
+        /* Phone click tracking hook. Fires a GA4 event when gtag is present,
+           pushes to dataLayer for GTM, and always dispatches a DOM event. */
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+          if (!a) return;
+          var detail = {
+            offer: a.getAttribute('data-offer') || 'water',
+            location: a.getAttribute('data-call-location') || 'body',
+            page: window.location.pathname
+          };
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'phone_click', phone_offer: detail.offer, call_location: detail.location, page_path: detail.page });
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'phone_click', { phone_offer: detail.offer, call_location: detail.location, page_path: detail.page });
+          }
+          document.dispatchEvent(new CustomEvent('phone_click', { detail: detail }));
+        });
+      })();
+    </script>
+  </body>
+</html>

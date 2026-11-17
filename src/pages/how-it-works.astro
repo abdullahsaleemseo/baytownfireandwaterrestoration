@@ -1,0 +1,127 @@
+---
+import Page from '../layouts/Page.astro';
+import CallButton from '../components/CallButton.astro';
+import CtaBand from '../components/CtaBand.astro';
+import FaqList from '../components/Faq.astro';
+import { SITE, DISCLOSURE, phone } from '../lib/site';
+
+const faqs = [
+  {
+    q: 'Does it cost anything to call?',
+    a: 'No. We do not charge homeowners for the call or the connection. The restoration company you speak with sets its own prices for inspections and work, so ask them about any fees before they come out.',
+  },
+  {
+    q: 'How does this website make money?',
+    a: 'We are paid by the restoration companies or the call network that receive calls, not by you. That payment is for the connection and does not depend on whether you hire anyone.',
+  },
+  {
+    q: 'Am I obligated to hire the company I am connected with?',
+    a: 'No. A call is only a conversation. You can ask questions, get an estimate, compare it with other companies and decide for yourself.',
+  },
+  {
+    q: 'Will I always reach the same company?',
+    a: 'Not necessarily. Calls are routed to a participating company that is available at the time, so two calls on different days may reach different companies. Always ask for the name of the company you are speaking with.',
+  },
+];
+const water = phone('water');
+const fire = phone('fire');
+---
+<Page
+  title="How It Works | Baytown Fire and Water Restoration"
+  description="Exactly what happens when you call Baytown Fire and Water Restoration: how calls are routed to independent local companies, what we do and what we do not."
+  h1="How It Works"
+  h1Html="How It <em>Works</em>"
+  eyebrow="Plain and simple"
+  sub="We are a referral line. This page explains exactly what happens when you call, who you end up talking to, and what we do and do not do."
+  crumbs={[{ name: 'How It Works', path: '/how-it-works/' }]}
+  faqs={faqs}
+>
+  <section class="section">
+    <div class="wrap article-grid">
+      <div class="prose">
+        <div class="disclosure" style="margin-top:0">
+          <p><strong>The short version:</strong> {DISCLOSURE}</p>
+        </div>
+
+        <h2>What happens when you call</h2>
+        <ol class="steps steps--light">
+          <li>
+            <h3>You dial the number on this site</h3>
+            <p>There are two lines. The water damage line is {water.display}. The fire damage line is {fire.display}. Both are call tracking numbers, which lets us route the call and see which page it came from.</p>
+          </li>
+          <li>
+            <h3>The call is routed to a restoration company</h3>
+            <p>Your call is forwarded to a participating restoration company that serves the Baytown area and is taking calls at that moment. You speak with that company directly, not with us. If no company is available, the call may not be answered, and you should try again or contact a company directly.</p>
+          </li>
+          <li>
+            <h3>You describe what happened</h3>
+            <p>Expect questions about the type of damage, when it started, your address and whether the water or fire source is under control. Ask for the company's name and write it down.</p>
+          </li>
+          <li>
+            <h3>The company arranges an inspection</h3>
+            <p>If you both agree, they schedule a visit, inspect the damage and give you their own estimate. Timing, pricing and any inspection fee are set by that company. Ask about all three on the call.</p>
+          </li>
+          <li>
+            <h3>You decide</h3>
+            <p>You are free to hire them, get other estimates, or do nothing. If you hire them, your contract is with that company, and they are responsible for the work.</p>
+          </li>
+        </ol>
+
+        <h2>What we do</h2>
+        <ul>
+          <li>Run this website and publish plain-language information about water, fire and mold damage for Baytown homeowners.</li>
+          <li>Provide phone numbers that connect callers with independent restoration companies serving Baytown ZIP codes {SITE.zips.join(', ')}.</li>
+          <li>Read and answer messages sent through our <a href="/contact/">contact form</a>.</li>
+        </ul>
+
+        <h2>What we do not do</h2>
+        <ul>
+          <li>We do not perform water removal, drying, fire cleanup, mold remediation or repairs.</li>
+          <li>We do not employ technicians or own trucks or equipment.</li>
+          <li>We do not have an office or storefront in Baytown that you can visit.</li>
+          <li>We do not set prices, give estimates or promise arrival times.</li>
+          <li>We do not handle, file or negotiate insurance claims.</li>
+          <li>We do not supervise or guarantee the work of any company you are connected with.</li>
+        </ul>
+
+        <h2>How we are paid</h2>
+        <p>
+          Calling is free for you. We earn money when calls are connected to restoration companies, paid by those companies or by the call network that works with them. This is how most referral and lead-generation sites work. We think you should know it up front, because it explains why we exist and why we have a reason to keep the information on this site honest and useful.
+        </p>
+
+        <h2>What we ask you to do</h2>
+        <p>
+          Check the company before you hire them. Ask for proof of insurance, ask which licenses apply to your job, and get the scope and price in writing. Our guide to <a href="/choosing-a-restoration-company-baytown/">choosing a restoration company</a> has a checklist, and our <a href="/disclaimer/">disclaimer</a> sets out the limits of what we can promise.
+        </p>
+        <p>
+          In an emergency that threatens life or safety, such as an active fire, a gas smell or someone hurt, call 911 first. We are not an emergency service.
+        </p>
+
+        <h2>Your phone number and privacy</h2>
+        <p>
+          When you call, your phone number is visible to the call tracking system and to the company that answers, the same as with any phone call. Calls may be recorded by the call tracking provider or the company for quality and record keeping. Details are in our <a href="/privacy-policy/">privacy policy</a>.
+        </p>
+
+        <h2>Questions about how this works</h2>
+        <FaqList items={faqs} />
+      </div>
+      <aside class="sidebar" aria-label="Call">
+        <div class="side-box">
+          <h2>Water damage line</h2>
+          <p>Leaks, burst pipes, flooding and mold concerns.</p>
+          <CallButton offer="water" label="Call {phone}" location="sidebar" />
+        </div>
+        <div class="side-box">
+          <h2>Fire damage line</h2>
+          <p>Fire, smoke and soot damage.</p>
+          <CallButton offer="fire" label="Call {phone}" location="sidebar" />
+        </div>
+        <div class="side-box side-box--light">
+          <h2>Phone hours</h2>
+          <p style="margin:0">{SITE.phoneHours}</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <CtaBand heading="Ready to <em>make the call?</em>" text="You will be connected with an independent restoration company serving Baytown. No charge from us, and no obligation to hire." label="Call {phone}" />
+</Page>

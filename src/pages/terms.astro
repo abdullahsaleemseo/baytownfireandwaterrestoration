@@ -1,0 +1,74 @@
+---
+import Page from '../layouts/Page.astro';
+import { SITE, lastUpdatedLong } from '../lib/site';
+---
+<Page
+  title="Terms of Use | Baytown Fire and Water Restoration"
+  description="Terms of use for the Baytown Fire and Water Restoration website and phone referral lines serving Baytown, Texas."
+  h1="Terms of Use"
+  eyebrow="Legal"
+  sub={`Last updated: ${lastUpdatedLong}`}
+  crumbs={[{ name: 'Terms of Use', path: '/terms/' }]}
+>
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <p>
+          These terms apply to your use of this website and the phone numbers shown on it, operated by {SITE.brandName} ("we", "us"). By using the site or calling our numbers, you agree to these terms. If you do not agree, please do not use the site.
+        </p>
+
+        <h2>1. What the service is</h2>
+        <p>
+          We provide general information and a phone referral service that connects callers with independent restoration companies serving Baytown, Texas. We do not perform restoration, repair, plumbing, electrical, mold or construction services, and we are not a party to any agreement between you and a company you are connected with. See our <a href="/disclaimer/">disclaimer</a> and <a href="/how-it-works/">How It Works</a> page.
+        </p>
+
+        <h2>2. No emergency service</h2>
+        <p>This site and its phone numbers are not an emergency service. If there is a threat to life or safety, call 911.</p>
+
+        <h2>3. Independent companies</h2>
+        <p>
+          Restoration companies reached through this site are independent businesses. They are solely responsible for their services, pricing, licensing, insurance and conduct. You are responsible for evaluating and selecting any company you hire.
+        </p>
+
+        <h2>4. Information is general</h2>
+        <p>
+          Content on this site is for general informational purposes and is not insurance, legal, medical or other professional advice. Do not rely on it as a substitute for advice from a qualified professional who knows your situation.
+        </p>
+
+        <h2>5. Calls and messages</h2>
+        <p>
+          By calling or submitting the contact form, you agree that we may forward your call or details to one or more restoration companies and that those companies may contact you about your request. Calls may be recorded. See our <a href="/privacy-policy/">privacy policy</a>.
+        </p>
+
+        <h2>6. Acceptable use</h2>
+        <p>
+          You agree not to misuse the site, including by submitting false information, sending spam through the form, attempting to disrupt the site, or copying its content for commercial use without permission.
+        </p>
+
+        <h2>7. Intellectual property</h2>
+        <p>
+          The text, design and logo of this site belong to {SITE.brandName} unless stated otherwise. Photographs are used under the licenses listed in the <a href="/disclaimer/#image-credits">image credits</a> and remain the property of their respective owners.
+        </p>
+
+        <h2>8. Disclaimer of warranties</h2>
+        <p>
+          The site and referral service are provided "as is" and "as available", without warranties of any kind, express or implied, to the fullest extent permitted by law. We do not warrant that a company will be available, that any service will meet your expectations, or that site content is complete or error-free.
+        </p>
+
+        <h2>9. Limitation of liability</h2>
+        <p>
+          To the fullest extent permitted by law, we are not liable for any indirect, incidental, special or consequential damages, or for any loss or damage arising from services provided by third-party companies, from your reliance on site content, or from your use of the site or phone numbers.
+        </p>
+
+        <h2>10. Governing law</h2>
+        <p>These terms are governed by the laws of the State of Texas, without regard to conflict of law rules.</p>
+
+        <h2>11. Changes</h2>
+        <p>We may update these terms. Continued use of the site after changes are posted means you accept the revised terms.</p>
+
+        <h2>12. Contact</h2>
+        <p>Questions about these terms: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+      </div>
+    </div>
+  </section>
+</Page>

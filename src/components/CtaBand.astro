@@ -1,0 +1,14 @@
+---
+import CallButton from './CallButton.astro';
+import { SITE, type Offer } from '../lib/site';
+interface Props { offer?: Offer; heading: string; text: string; label?: string }
+const { offer = 'water', heading, text, label } = Astro.props;
+---
+<section class="cta-band bg-dark" aria-label="Call">
+  <div class="wrap">
+    <h2 set:html={heading} />
+    <p>{text}</p>
+    <CallButton offer={offer} variant="btn--lg" label={label} location="cta-band" />
+    <p class="fine">Phone hours: {SITE.phoneHours} &middot; Referral line, not a contractor</p>
+  </div>
+</section>

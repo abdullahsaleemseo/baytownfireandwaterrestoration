@@ -1,0 +1,18 @@
+{
+  "brandName": "Baytown Fire and Water Restoration",
+  "url": "https://baytownfireandwaterrestoration.com",
+  "phoneWater": "{{PHONE_WATER}}",
+  "phoneWaterTel": "{{PHONE_WATER_TEL}}",
+  "phoneFire": "{{PHONE_FIRE}}",
+  "phoneFireTel": "{{PHONE_FIRE_TEL}}",
+  "phoneHours": "{{PHONE_HOURS}}",
+  "email": "{{EMAIL}}",
+  "ownerName": "{{OWNER_NAME}}",
+  "launchYear": "2026",
+  "city": "Baytown",
+  "state": "TX",
+  "zips": ["77520", "77521", "77523"],
+  "social": [],
+  "lastUpdated": "2026-11-17",
+  "formEndpoint": "/api/contact.php"
+}

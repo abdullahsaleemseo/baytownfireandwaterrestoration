@@ -1,0 +1,89 @@
+---
+import Page from '../layouts/Page.astro';
+import { SITE, lastUpdatedLong } from '../lib/site';
+---
+<Page
+  title="Privacy Policy | Baytown Fire and Water Restoration"
+  description="How Baytown Fire and Water Restoration collects, uses and shares information from phone calls, the contact form and website visits."
+  h1="Privacy Policy"
+  eyebrow="Legal"
+  sub={`Last updated: ${lastUpdatedLong}`}
+  crumbs={[{ name: 'Privacy Policy', path: '/privacy-policy/' }]}
+>
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <p>
+          This policy explains what information {SITE.brandName} ("we", "us") collects through this website and its phone numbers, how we use it and who we share it with. We are a referral service that connects callers with independent restoration companies, and sharing your details with those companies is central to what we do.
+        </p>
+
+        <h2>Information we collect</h2>
+        <h3>When you call</h3>
+        <ul>
+          <li>Your phone number, the number you dialed, and the date, time and length of the call</li>
+          <li>The page of this website you were on when you called, where our call tracking system can determine it</li>
+          <li>Call recordings, if calls are recorded by our call tracking provider or by the company that answers</li>
+          <li>Whatever you tell the restoration company during the call, which that company collects directly</li>
+        </ul>
+        <h3>When you use the contact form</h3>
+        <ul>
+          <li>Your name, phone number, ZIP code, the type of damage you select and your message</li>
+        </ul>
+        <h3>When you visit the website</h3>
+        <ul>
+          <li>Standard server log data such as IP address, browser type, pages viewed and referring page</li>
+          <li>If analytics tools such as Google Analytics are enabled, usage data collected through cookies or similar technologies, including phone link clicks</li>
+        </ul>
+
+        <h2>How we use information</h2>
+        <ul>
+          <li>To route your call or message to a restoration company that can help you</li>
+          <li>To reply to questions, corrections and complaints</li>
+          <li>To measure which pages and phone numbers are used, and to improve the site</li>
+          <li>To detect spam, fraud and misuse</li>
+          <li>To keep business records and meet legal obligations</li>
+        </ul>
+
+        <h2>Who we share information with</h2>
+        <ul>
+          <li><strong>Restoration companies and call networks.</strong> Calls are forwarded to independent restoration companies, sometimes through a third-party call network. Contact form details may be passed to such a company so it can call you back. Those companies handle your information under their own privacy practices.</li>
+          <li><strong>Service providers.</strong> Call tracking, web hosting, email and analytics providers process information on our behalf.</li>
+          <li><strong>Legal reasons.</strong> We may disclose information if required by law or to protect our rights or the safety of others.</li>
+        </ul>
+        <p>We do not sell lists of personal information to unrelated marketers.</p>
+
+        <h2>Call recording</h2>
+        <p>
+          Calls placed to the numbers on this site may be recorded and monitored by the call tracking provider or the answering company for quality, training and record keeping. If you do not want to be recorded, tell the person who answers or use the contact form.
+        </p>
+
+        <h2>Cookies and analytics</h2>
+        <p>
+          The site itself works without cookies. If we enable analytics, those tools may set cookies to count visits and measure how pages are used. You can block cookies in your browser settings, and Google offers a browser add-on to opt out of Google Analytics.
+        </p>
+
+        <h2>How long we keep information</h2>
+        <p>
+          We keep call logs, recordings and form messages only as long as needed for the purposes above or as required by law, and then delete them or remove identifying details.
+        </p>
+
+        <h2>Your choices</h2>
+        <p>
+          You can ask what information we hold about you, or ask us to correct or delete it, by emailing <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Texas residents may have additional rights under Texas privacy law. For information held by a restoration company you spoke with, contact that company directly.
+        </p>
+
+        <h2>Children</h2>
+        <p>This website is intended for adults. We do not knowingly collect personal information from children under 13.</p>
+
+        <h2>Security</h2>
+        <p>We use reasonable measures to protect information, but no website, phone system or email is completely secure.</p>
+
+        <h2>Changes</h2>
+        <p>We may update this policy. The date at the top shows when it was last revised.</p>
+
+        <h2>Contact</h2>
+        <p>{SITE.brandName}, attention {SITE.ownerName}: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+      </div>
+    </div>
+  </section>
+</Page>

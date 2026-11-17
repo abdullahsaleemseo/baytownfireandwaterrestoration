@@ -1,0 +1,11 @@
+---
+// Every phone link on the site goes through this component (or lib/site phone()).
+import Icon from './Icon.astro';
+import { phone, type Offer } from '../lib/site';
+interface Props { offer?: Offer; label?: string; variant?: string; location?: string; class?: string }
+const { offer = 'water', label, variant = '', location = 'body', class: cls = '' } = Astro.props;
+const p = phone(offer);
+---
+<a class:list={['btn', variant, cls]} href={p.tel} data-offer={p.offer} data-call-location={location}>
+  <Icon name="phone" /><span>{label ? label.replace('{phone}', p.display) : `Call ${p.display}`}</span>
+</a>

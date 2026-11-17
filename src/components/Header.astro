@@ -1,0 +1,33 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import CallButton from './CallButton.astro';
+import { SERVICES, type Offer } from '../lib/site';
+interface Props { offer?: Offer }
+const { offer = 'water' } = Astro.props;
+const path = Astro.url.pathname;
+const cur = (href: string) => (path === href ? 'page' : undefined);
+---
+<header class="site-header">
+  <div class="wrap">
+    <Logo />
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <Icon name="menu" />
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/" aria-current={cur('/')}>Home</a></li>
+        <li><a href="/about/" aria-current={cur('/about/')}>About</a></li>
+        <li class="has-sub">
+          <button type="button" aria-expanded="false" aria-controls="services-menu">Services <Icon name="chevron" /></button>
+          <ul class="submenu" id="services-menu">
+            {SERVICES.map((s) => <li><a href={s.href} aria-current={cur(s.href)}>{s.label}</a></li>)}
+          </ul>
+        </li>
+        <li><a href="/how-it-works/" aria-current={cur('/how-it-works/')}>How It Works</a></li>
+        <li><a href="/contact/" aria-current={cur('/contact/')}>Contact</a></li>
+      </ul>
+    </nav>
+    <CallButton offer={offer} class="header-cta" location="header" />
+  </div>
+</header>

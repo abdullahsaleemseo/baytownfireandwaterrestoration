@@ -1,0 +1,173 @@
+---
+import Service from '../layouts/Service.astro';
+
+const faqs = [
+  {
+    q: 'Do restoration companies need a license in Texas?',
+    a: 'It depends on the work. Texas does not issue a general statewide license for water or fire damage restoration contractors, but specific trades are licensed: mold assessment and remediation through TDLR, plumbing through the Texas State Board of Plumbing Examiners, and electrical and air conditioning work through TDLR. Ask which licenses apply to your job and verify each one.',
+  },
+  {
+    q: 'What certifications should a restoration company in Baytown have?',
+    a: 'The most widely recognized are from the IICRC, the Institute of Inspection, Cleaning and Restoration Certification. Common ones are Water Damage Restoration Technician (WRT), Applied Structural Drying (ASD), Fire and Smoke Damage Restoration Technician (FSRT) and Applied Microbial Remediation Technician (AMRT). Certification is voluntary, so ask to see the cards.',
+  },
+  {
+    q: 'Is it normal to pay a deposit before restoration work starts?',
+    a: 'Emergency water removal is often started without a large deposit, and the Texas Department of Insurance says to be wary if a contractor asks for a large or full down payment. It also notes that after a disaster it is against the law for out-of-town contractors to ask for a down payment before they start.',
+  },
+  {
+    q: 'Does your referral line vet the companies it connects me with?',
+    a: 'Our line is intended to route calls to licensed, insured local restoration companies, but we do not supervise their work and cannot guarantee any company. Treat a company you reach through us the way you would treat one you found yourself: verify insurance, licenses and references before you sign.',
+  },
+];
+---
+<Service
+  title="Choosing a Restoration Company in Baytown TX: A Checklist"
+  description="How to vet a restoration company in Baytown: Texas licenses that apply, proof of insurance, written estimates, certifications and storm red flags."
+  h1="How to Choose a Restoration Company in Baytown"
+  h1Html="How to Choose a <em>Restoration Company</em> in Baytown"
+  eyebrow="Hiring guide"
+  sub="You are about to let strangers cut into your walls during one of the worst weeks of your year. Ten minutes of checking first is worth it. This is the checklist we would use ourselves."
+  crumb="Choosing a Restoration Company"
+  takeaways={[
+    'Verify insurance and any required Texas licenses yourself. Do not rely on a logo, a website or a referral, including ours.',
+    'Get the scope of work and price in writing before work begins, with no blank spaces.',
+    'A contractor who offers to waive your insurance deductible is breaking Texas law.',
+    'After storms, be extra careful with door-to-door offers and demands for large upfront payments.',
+  ]}
+  faqs={faqs}
+  related={[
+    { href: '/water-damage-restoration-baytown-tx/', label: 'What a proper water damage job looks like' },
+    { href: '/fire-smoke-damage-restoration-baytown-tx/', label: 'Fire and smoke damage restoration in Baytown' },
+    { href: '/mold-after-water-damage-baytown/', label: 'Texas mold licensing rules in detail' },
+    { href: '/service-area/', label: 'Our Baytown service area' },
+    { href: '/how-it-works/', label: 'How we connect callers with companies' },
+  ]}
+  sources={[
+    { href: 'https://www.tdi.texas.gov/tips/contractor-scams.html', label: 'Texas Department of Insurance: Avoiding contractor scams' },
+    { href: 'https://www.tdi.texas.gov/tips/can-a-contractor-waive-my-deductible.html', label: 'Texas Department of Insurance: Can a contractor waive my deductible?' },
+    { href: 'https://www.tdlr.texas.gov/mld/', label: 'Texas Department of Licensing and Regulation: Mold Assessors and Remediators' },
+    { href: 'https://www.tdlr.texas.gov/LicenseSearch/', label: 'TDLR: License search' },
+    { href: 'https://www.epa.gov/mold/mold-cleanup-your-home', label: 'U.S. EPA: Mold Cleanup in Your Home (hiring a contractor)' },
+  ]}
+  sideHeading="Ready to talk to a company?"
+  sideText="Call to be connected with an independent restoration company serving Baytown. Then run through this checklist with them."
+  sideLabel="Call {phone}"
+  cta={{
+    heading: 'Ask the hard questions <em>first</em>',
+    text: 'We connect you by phone with an independent local restoration company. Hiring them, or not, is entirely your decision.',
+    label: 'Call {phone}',
+  }}
+>
+  <p>
+    Picking a restoration company in Baytown usually happens under pressure. Water is spreading or the house smells of smoke, and the first company that answers the phone tends to get the job. Most of the time that works out. When it does not, the cause is nearly always something that a few questions would have caught. This guide lists those questions.
+  </p>
+
+  <div class="disclosure">
+    <p><strong>A note on us:</strong> this site is a referral line. We route your call to an independent company and we do not do restoration work. Everything below applies to companies you reach through our number too. Verifying them is your job, and a good company will make it easy.</p>
+  </div>
+
+  <h2>1. Licenses: what Texas does and does not require</h2>
+  <p>
+    Homeowners are often told to "hire a licensed contractor," which is harder than it sounds in Texas, because the state has no general contractor license and no specific license for drying out a house. What Texas does license is certain kinds of work a restoration job may include:
+  </p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th scope="col">Work</th><th scope="col">Who regulates it</th><th scope="col">What to ask for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mold assessment and mold remediation</td><td>Texas Department of Licensing and Regulation (TDLR)</td><td>TDLR mold license number. Assessment and remediation on one project must be done by different licensees.</td></tr>
+        <tr><td>Plumbing repairs</td><td>Texas State Board of Plumbing Examiners</td><td>The plumber's license number</td></tr>
+        <tr><td>Electrical work</td><td>TDLR</td><td>Electrical contractor license number</td></tr>
+        <tr><td>Air conditioning and heating repairs</td><td>TDLR</td><td>Air conditioning and refrigeration contractor license number</td></tr>
+        <tr><td>Rebuilding (drywall, flooring, structural repair)</td><td>No state license. The City of Baytown may require building permits for some repairs</td><td>Who pulls permits, and proof of insurance</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    You can check TDLR licenses at the <a href="https://www.tdlr.texas.gov/LicenseSearch/" rel="noopener">TDLR license search</a>. If a company says it is "fully licensed," ask the simple follow-up: licensed for what, by whom, and what is the number? Our <a href="/mold-after-water-damage-baytown/">mold page</a> explains the TDLR mold rules.
+  </p>
+
+  <h2>2. Insurance: ask for the certificate</h2>
+  <p>
+    Because there is no restoration license to lean on, insurance is the most important thing to verify. Ask the company to have its insurance agent send you a certificate of insurance showing:
+  </p>
+  <ul>
+    <li><strong>General liability</strong> coverage, which pays if their work damages your property</li>
+    <li><strong>Workers' compensation</strong> or an occupational accident policy, which matters if a worker is hurt in your home. Texas does not require most private employers to carry workers' compensation, so ask directly.</li>
+    <li>For mold jobs, coverage that does not exclude mold or pollution work</li>
+  </ul>
+  <p>A certificate sent from the agent is better than a photo of one, since it confirms the policy is active today.</p>
+
+  <h2>3. Training and certifications to ask about</h2>
+  <p>
+    Certification in this industry is voluntary, so it tells you who has invested in training. The best known body is the IICRC (Institute of Inspection, Cleaning and Restoration Certification). The EPA mentions IICRC guidelines among the professional references a mold contractor should follow. Certifications are held by individual technicians, and a company can also register as an IICRC Certified Firm.
+  </p>
+  <ul>
+    <li><strong>WRT</strong>, Water Damage Restoration Technician: the baseline for water losses</li>
+    <li><strong>ASD</strong>, Applied Structural Drying: more advanced drying training</li>
+    <li><strong>FSRT</strong>, Fire and Smoke Damage Restoration Technician</li>
+    <li><strong>AMRT</strong>, Applied Microbial Remediation Technician: mold and sewage work</li>
+  </ul>
+  <p>Ask which of the people coming to your house hold which certificates, and ask to see the cards. Do not accept "we follow IICRC standards" as the same thing.</p>
+
+  <h2>4. A written scope and estimate</h2>
+  <p>Before work starts, or within the first day for an emergency, you should have in writing:</p>
+  <ul>
+    <li>What will be removed, what will be dried in place, and what equipment will be used</li>
+    <li>How the job is priced: a fixed price, or unit pricing by line item (common on insurance work)</li>
+    <li>How moisture will be measured and how you will know drying is complete</li>
+    <li>Whether repairs and rebuilding are included or separate</li>
+    <li>Payment terms, and how changes will be approved</li>
+    <li>The company's legal name, physical address and phone number</li>
+  </ul>
+  <p>
+    The <a href="https://www.tdi.texas.gov/tips/contractor-scams.html" rel="noopener">Texas Department of Insurance</a> recommends getting written bids on company letterhead, reading every document before signing, and never signing a contract with blank spaces. For non-emergency repairs it suggests at least three bids. In a true emergency, you can authorize the water removal and drying first and take bids on the rebuild later.
+  </p>
+
+  <h2>5. Read what you sign</h2>
+  <p>Restoration paperwork commonly includes one or more of these:</p>
+  <ul>
+    <li><strong>Work authorization:</strong> permission to start. Reasonable, as long as the scope and pricing basis are stated.</li>
+    <li><strong>Direction to pay:</strong> lets your insurer pay the contractor directly. Often convenient.</li>
+    <li><strong>Assignment of benefits:</strong> transfers some of your rights under the insurance claim to the contractor. This is a bigger step. Understand it before signing, and ask your insurer or an attorney if unsure.</li>
+  </ul>
+  <p>TDI specifically warns against contracts stating that the homeowner agrees to repairs "for the value of insurance proceeds," which hands the contractor every dollar of the insurance payment.</p>
+
+  <h2>Red flags, especially after storms</h2>
+  <p>After hurricanes, floods and freezes, Baytown fills with out-of-area crews. Plenty are legitimate. These signs should make you stop:</p>
+  <ul>
+    <li><strong>An offer to waive or cover your deductible.</strong> TDI says it is illegal for contractors to waive your deductible or help you avoid paying it. Find another contractor.</li>
+    <li><strong>A large or full payment demanded up front.</strong> TDI says to be wary, and notes that after a disaster it is against the law for out-of-town contractors to ask for a down payment before they start.</li>
+    <li><strong>Pressure to sign now.</strong> "This price is only good today" is a sales tactic.</li>
+    <li><strong>No physical address,</strong> no certificate of insurance, or reluctance to give license numbers.</li>
+    <li><strong>A document described as "just an estimate"</strong> or "permission to inspect" that is actually a contract.</li>
+    <li><strong>Mold scare tactics.</strong> Claims that you must leave immediately or that only they can test and fix it. In Texas the assessor and remediator on a project must be separate.</li>
+    <li><strong>A promise that insurance will pay for everything.</strong> No contractor knows your policy.</li>
+    <li><strong>Cash only,</strong> or a request to make the insurance check payable to an individual.</li>
+  </ul>
+
+  <h2>Questions to ask on the first call</h2>
+  <ol>
+    <li>What is your company's legal name and where is your office?</li>
+    <li>When can someone realistically be at my house?</li>
+    <li>Is there a charge for the inspection or estimate? If so, how much?</li>
+    <li>Can your agent send me a certificate of insurance today?</li>
+    <li>What certifications do the technicians coming to my home hold?</li>
+    <li>If you find mold, who holds the TDLR license?</li>
+    <li>Will I get a written scope and price before you start?</li>
+    <li>Do you handle repairs after drying, or only the mitigation?</li>
+    <li>Can you give me two or three recent customers in the Baytown area I can call?</li>
+  </ol>
+  <p>
+    A company that answers these plainly is usually a company that does the work properly. For what the work should involve, see our pages on <a href="/water-damage-restoration-baytown-tx/">water damage restoration</a> and <a href="/fire-smoke-damage-restoration-baytown-tx/">fire and smoke damage</a>.
+  </p>
+
+  <h2>If something goes wrong</h2>
+  <ul>
+    <li>Problems with licensed mold, electrical or air conditioning work: file a complaint with TDLR.</li>
+    <li>Deductible waiver offers and suspected contractor fraud: TDI says you can report these to the Texas Attorney General's consumer protection office.</li>
+    <li>Disputes with your insurer: contact the Texas Department of Insurance.</li>
+    <li>If a company you reached through our line behaved badly, please <a href="/contact/">tell us</a>. We want to know.</li>
+  </ul>
+</Service>

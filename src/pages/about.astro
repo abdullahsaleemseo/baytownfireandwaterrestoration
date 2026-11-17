@@ -1,0 +1,80 @@
+---
+import Page from '../layouts/Page.astro';
+import CallButton from '../components/CallButton.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, DISCLOSURE, lastUpdatedLong } from '../lib/site';
+---
+<Page
+  title="About Baytown Fire and Water Restoration"
+  description="Who runs Baytown Fire and Water Restoration, why the site exists, how the referral model works and the editorial standards behind every page."
+  h1="About Baytown Fire and Water Restoration"
+  h1Html="About Baytown <em>Fire and Water</em> Restoration"
+  eyebrow="About"
+  sub="A small, independent website with one job: help Baytown homeowners understand water and fire damage, and reach a local restoration company by phone."
+  crumbs={[{ name: 'About', path: '/about/' }]}
+>
+  <section class="section">
+    <div class="wrap article-grid">
+      <div class="prose">
+        <h2>What this site is</h2>
+        <p>{DISCLOSURE}</p>
+        <p>
+          We are not a restoration contractor. We have no crews, no trucks and no office in Baytown. What we have is a website with carefully checked information and two phone lines that forward to restoration companies working in the area. If that is not what you expected, better that you learn it here than after you call.
+        </p>
+
+        <h2>Who runs it</h2>
+        <p>
+          {SITE.brandName} is run by {SITE.ownerName}, who is responsible for what is published here and reviews each page before it goes live. Questions, corrections and complaints go to {SITE.ownerName} directly at <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+        </p>
+
+        <h2>Why it exists</h2>
+        <p>
+          When a pipe bursts or a kitchen fire is finally out, people search on their phones and call the first number they see. A lot of what they find is not what it claims to be: websites posing as local companies with invented addresses, borrowed reviews and promises nobody intends to keep.
+        </p>
+        <p>
+          This site takes the opposite approach. It says what it is, a referral line, and tries to earn the call by being useful: explaining what restoration involves, what Texas rules apply, how insurance usually treats the damage, and how to check the company that shows up.
+        </p>
+
+        <h2>How we are paid</h2>
+        <p>
+          Calling is free for homeowners. We are paid when calls are connected to restoration companies, by those companies or by the call network that works with them. That payment does not depend on whether you hire anyone. Full details are on the <a href="/how-it-works/">How It Works</a> page.
+        </p>
+
+        <h2>Editorial standards</h2>
+        <p>Water, fire and mold damage involve your health, your home and your money, so we hold the content to a few firm rules.</p>
+        <ul>
+          <li><strong>Official sources for safety and legal facts.</strong> Health, safety, insurance and licensing statements are based on sources such as the U.S. Environmental Protection Agency, the National Weather Service, the Texas Department of Insurance, the Texas Department of Licensing and Regulation, the U.S. Fire Administration and the American Red Cross. Each page lists its sources.</li>
+          <li><strong>No invented numbers.</strong> If we cannot point to a source for a statistic, we do not publish it. We do not quote prices or response times, because we do not set them.</li>
+          <li><strong>No fake trust signals.</strong> No made-up reviews, star ratings, awards, certifications, license numbers or addresses. When real reviews exist, we will show real reviews.</li>
+          <li><strong>Honest pictures.</strong> Photos are licensed images used for illustration, credited to their sources, and captioned for what they actually show. They are not photos of our work, because we do not do the work.</li>
+          <li><strong>Clear limits.</strong> We are not insurance, legal or medical professionals. Pages say so where it matters and point you to people who are.</li>
+          <li><strong>Dated and reviewed.</strong> Service pages show a "last updated" date and are reviewed by {SITE.ownerName}. This page was last updated on {lastUpdatedLong}.</li>
+          <li><strong>Corrections welcome.</strong> If you spot an error, email us. We fix confirmed mistakes promptly.</li>
+        </ul>
+
+        <h2>Where we work</h2>
+        <p>
+          Baytown, Texas only: ZIP codes {SITE.zips.join(', ')}. See the <a href="/service-area/">service area page</a> for the neighborhoods and a map.
+        </p>
+
+        <h2>Things you should verify yourself</h2>
+        <p>
+          The companies on the other end of our phone lines are independent businesses. Before hiring one, confirm its insurance, any Texas licenses that apply to your job and its references. Our <a href="/choosing-a-restoration-company-baytown/">hiring guide</a> shows how, and our <a href="/disclaimer/">disclaimer</a> explains the limits of our role.
+        </p>
+      </div>
+      <aside class="sidebar" aria-label="Contact">
+        <div class="side-box">
+          <h2>Need help now?</h2>
+          <p>Call to be connected with an independent restoration company serving Baytown.</p>
+          <CallButton label="Call {phone}" location="sidebar" />
+        </div>
+        <div class="side-box side-box--light">
+          <h2>Contact the site owner</h2>
+          <p>{SITE.ownerName}<br /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+          <p style="margin:0"><a href="/contact/">Contact page</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <CtaBand heading="Straight answers, <em>local help</em>" text="Call to reach an independent restoration company that serves Baytown, or read the guides first. Either is fine with us." label="Call {phone}" />
+</Page>

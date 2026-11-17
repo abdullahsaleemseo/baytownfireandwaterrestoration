@@ -1,0 +1,79 @@
+---
+import Page from '../layouts/Page.astro';
+import { SITE, lastUpdatedLong } from '../lib/site';
+import credits from '../data/credits.json';
+---
+<Page
+  title="Disclaimer | Baytown Fire and Water Restoration"
+  description="Disclaimer for Baytown Fire and Water Restoration: we are a referral line, companies are independent, and site content is general information only."
+  h1="Disclaimer"
+  eyebrow="Legal"
+  sub={`Last updated: ${lastUpdatedLong}`}
+  crumbs={[{ name: 'Disclaimer', path: '/disclaimer/' }]}
+>
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <h2>We are a referral service, not a contractor</h2>
+        <p>
+          {SITE.brandName} operates this website and the phone numbers shown on it. We connect callers with independent, third-party restoration companies that serve the Baytown, Texas area. We do not perform water damage restoration, fire or smoke cleanup, mold remediation, plumbing, electrical work, construction or any other service at your property.
+        </p>
+
+        <h2>The companies are independent</h2>
+        <p>
+          The restoration company you are connected with is a separate business. It is not our employee, agent, partner or subcontractor. That company alone is responsible for its estimates, pricing, scheduling, workmanship, employees, licensing, insurance and any guarantee it gives you. Any agreement you make is between you and that company.
+        </p>
+
+        <h2>Verify before you hire</h2>
+        <p>We encourage every homeowner to confirm, before work begins:</p>
+        <ul>
+          <li>That the company carries current general liability insurance and coverage for its workers</li>
+          <li>That anyone performing licensed work holds the right Texas license, for example a TDLR license for mold assessment or remediation, a plumbing license, or an electrical license</li>
+          <li>Any training certifications the company claims, such as IICRC certificates</li>
+          <li>References, and the terms of the written estimate and contract</li>
+        </ul>
+        <p>
+          We do not guarantee the availability, quality, timing, price or outcome of any service provided by a company you reach through this site, and we do not guarantee that a company will be available to answer every call.
+        </p>
+
+        <h2>How we are paid</h2>
+        <p>
+          We receive compensation from restoration companies or call networks when calls are connected. You are not charged by us. This compensation may influence which companies receive calls from this site.
+        </p>
+
+        <h2>General information only</h2>
+        <p>
+          The content on this website is provided for general educational purposes. It is not insurance advice, legal advice, medical advice, or professional engineering, electrical or plumbing advice, and it is not a substitute for an on-site assessment by a qualified professional. Insurance coverage depends on your own policy, and only your insurer can make coverage decisions. Laws, regulations and agency guidance change, so check the linked official sources for the current rules.
+        </p>
+
+        <h2>Safety</h2>
+        <p>
+          Water, fire and mold damage can create serious hazards, including electrical shock, structural collapse, contaminated water and poor air quality. If there is immediate danger to life or property, call 911. Do not rely on this website in an emergency, and do not enter a damaged building until the appropriate authorities or professionals have said it is safe.
+        </p>
+
+        <h2>No warranties</h2>
+        <p>
+          We work to keep the information here accurate and current, but we make no warranty that it is complete, error-free or suitable for your situation. Use of this website and its phone numbers is at your own risk, to the extent permitted by law. See our <a href="/terms/">terms of use</a>.
+        </p>
+
+        <h2>External links</h2>
+        <p>
+          We link to government agencies and other organizations for reference. We do not control those sites and are not responsible for their content.
+        </p>
+
+        <h2 id="image-credits">Image credits</h2>
+        <p>Photographs on this site are licensed images used for illustration. They do not show our work or any specific company's work.</p>
+        <ul class="sources">
+          {credits.map((c: any) => (
+            <li>
+              {c.caption}: <a href={c.page} rel="noopener">{c.title}</a> by {c.author}, {c.licenseUrl ? <a href={c.licenseUrl} rel="noopener">{c.license}</a> : c.license}. {c.changes}
+            </li>
+          ))}
+        </ul>
+
+        <h2>Contact</h2>
+        <p>Questions about this disclaimer can be sent to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+      </div>
+    </div>
+  </section>
+</Page>

@@ -1,0 +1,97 @@
+---
+import Page from '../layouts/Page.astro';
+import CallButton from '../components/CallButton.astro';
+import CtaBand from '../components/CtaBand.astro';
+import FaqList from '../components/Faq.astro';
+import { SITE } from '../lib/site';
+
+const about = [
+  {
+    q: 'Is Baytown Fire and Water Restoration a restoration company?',
+    a: 'No. We are a referral line. We connect Baytown homeowners by phone with independent local restoration companies, and those companies do the inspection, the estimate and the work. We have no crews, equipment or office of our own.',
+  },
+  {
+    q: 'Who will actually come to my house?',
+    a: 'A technician from the independent restoration company your call is routed to. Ask for the company name on the phone, and check its insurance and any licenses that apply before work begins. Our <a href="/choosing-a-restoration-company-baytown/">hiring guide</a> explains how.',
+  },
+  {
+    q: 'How quickly can someone get to me?',
+    a: 'We cannot promise a time, because we do not dispatch anyone. Arrival depends on the company you reach and how busy the area is, and after a major storm or freeze every company in the region is stretched. Ask for a realistic arrival time when you are connected.',
+  },
+  {
+    q: 'What does restoration cost?',
+    a: 'We cannot quote prices, because each company sets its own. Cost depends on how much area is affected, what kind of water or smoke is involved, how long it sat and how much has to be rebuilt. Ask for a written, itemized estimate before work starts.',
+  },
+  {
+    q: 'When is the phone line answered?',
+    a: `Phone hours are: ${SITE.phoneHours}. Outside those hours a call may not be answered. If you face immediate danger at any hour, call 911.`,
+  },
+  {
+    q: 'Which areas do you cover?',
+    a: `Baytown, Texas, in ZIP codes ${SITE.zips.join(', ')}. The <a href="/service-area/">service area page</a> has a map and describes the neighborhoods.`,
+  },
+];
+const damage = [
+  {
+    q: 'What should I do in the first hour after finding water damage?',
+    a: 'Stop the water at its source or the main shutoff, and stay away from wet electrical outlets and appliances. Then photograph everything, move belongings out of the water, and call a restoration company and your insurer. The <a href="/water-damage-restoration-baytown-tx/">water damage page</a> goes through each step.',
+  },
+  {
+    q: 'Is it safe to stay in a house with water damage?',
+    a: 'Often yes for a small clean-water leak, and no when sewage, floodwater, wet electrical systems or a sagging ceiling are involved. The EPA advises professional cleanup for sewage and other contaminated water. When unsure, stay elsewhere until a professional has looked at it.',
+  },
+  {
+    q: 'My ceiling has a brown stain but is dry now. Do I need to do anything?',
+    a: 'Yes, find out why. A stain means water got in at least once, and the usual causes here are roof leaks, air conditioner drain pan overflows and attic plumbing. If the source is still active, the insulation and drywall above may be wet and mold can follow.',
+  },
+  {
+    q: 'What should I do after a kitchen fire that was put out quickly?',
+    a: 'Ventilate if the fire department says the home is safe, throw out food exposed to heat, smoke or soot, and avoid wiping soot from walls, which tends to smear it. Smoke residue from burned food carries a strong odor that spreads through the house, so a professional assessment is worth having. See <a href="/fire-smoke-damage-restoration-baytown-tx/">fire and smoke damage</a>.',
+  },
+  {
+    q: 'Do I have to use a company my insurance recommends?',
+    a: 'No. Your insurer may suggest contractors, but the choice of who works on your home is yours. Whichever company you pick, share its estimate with your adjuster so differences can be discussed before work goes too far.',
+  },
+  {
+    q: 'What if a freeze is forecast for Baytown?',
+    a: 'Protect exposed pipes before the cold arrives. The American Red Cross recommends letting cold water drip from faucets served by exposed pipes. Know where your main shutoff is, and if a pipe does break, shut off the water first. More on our <a href="/burst-pipe-water-damage-baytown/">burst pipe page</a>.',
+  },
+];
+const all = [...about, ...damage];
+---
+<Page
+  title="FAQ | Baytown Fire and Water Restoration"
+  description="Answers to common questions about our Baytown referral line, restoration costs and timing, water damage first steps, fire cleanup, freezes and insurance."
+  h1="Frequently Asked Questions"
+  h1Html="Frequently Asked <em>Questions</em>"
+  eyebrow="FAQ"
+  sub="Direct answers about how this referral line works and what to do about water, fire and smoke damage in Baytown."
+  crumbs={[{ name: 'FAQ', path: '/faq/' }]}
+  faqs={all}
+>
+  <section class="section bg-light">
+    <div class="wrap">
+      <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:880px">
+        <p class="eyebrow">About this service</p>
+        <h2>How the <em>referral line</em> works</h2>
+      </div>
+      <FaqList items={about} />
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:880px">
+        <p class="eyebrow">Damage and cleanup</p>
+        <h2>Water, fire and <em>smoke damage</em></h2>
+      </div>
+      <FaqList items={damage} />
+      <p class="source-note" style="max-width:880px;margin-left:auto;margin-right:auto">
+        Safety statements on this page are drawn from the <a href="https://www.epa.gov/mold/mold-cleanup-your-home" rel="noopener">U.S. EPA</a> and the <a href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/winter-storm/frozen-pipes.html" rel="noopener">American Red Cross</a>. This is general information, not insurance, legal or medical advice. Still have a question? <a href="/contact/">Send us a message</a>.
+      </p>
+      <div class="btn-row" style="justify-content:center">
+        <CallButton label="Call {phone}" location="faq" />
+      </div>
+    </div>
+  </section>
+  <CtaBand heading="Question not <em>answered?</em>" text="Call to speak with an independent restoration company serving Baytown, or send us a message through the contact page." label="Call the water damage line" />
+</Page>

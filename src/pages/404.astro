@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import CallButton from '../components/CallButton.astro';
+import { SERVICES } from '../lib/site';
+---
+<Base title="Page Not Found | Baytown Fire and Water Restoration" description="The page you were looking for could not be found." noindex path="/404/">
+  <section class="banner">
+    <div class="wrap"><div class="banner__in">
+      <p class="eyebrow">Error 404</p>
+      <h1>Page <em>not found</em></h1>
+      <p class="banner__sub">That page does not exist or has moved. Here are the pages people look for most.</p>
+    </div></div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <ul class="related">
+          <li><a href="/">Home</a></li>
+          {SERVICES.map((s) => <li><a href={s.href}>{s.label}</a></li>)}
+          <li><a href="/how-it-works/">How It Works</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+        <div class="btn-row"><CallButton label="Call {phone}" location="404" /></div>
+      </div>
+    </div>
+  </section>
+</Base>

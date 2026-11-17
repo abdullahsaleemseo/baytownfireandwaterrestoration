@@ -1,0 +1,136 @@
+---
+import Page from '../layouts/Page.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, DISCLOSURE, phone } from '../lib/site';
+const water = phone('water');
+const fire = phone('fire');
+---
+<Page
+  title="Contact | Baytown Fire and Water Restoration"
+  description="Contact Baytown Fire and Water Restoration: water damage line, fire damage line, email, phone hours and a short message form for Baytown, TX homeowners."
+  h1="Contact Us"
+  h1Html="Contact <em>Us</em>"
+  eyebrow="Get in touch"
+  sub="For urgent water or fire damage, calling is fastest. For questions about the site, corrections or feedback, use the form or email."
+  crumbs={[{ name: 'Contact', path: '/contact/' }]}
+>
+  <section class="section">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <Icon name="drop" />
+            <div>
+              <h2>Water damage line</h2>
+              <a href={water.tel} data-offer="water" data-call-location="contact">{water.display}</a>
+              <p>Leaks, burst pipes, flooding, storm water and mold concerns.</p>
+            </div>
+          </div>
+          <div class="contact-card contact-card--fire">
+            <Icon name="flame" />
+            <div>
+              <h2>Fire damage line</h2>
+              <a href={fire.tel} data-offer="fire" data-call-location="contact">{fire.display}</a>
+              <p>Fire, smoke and soot damage.</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <Icon name="mail" />
+            <div>
+              <h2>Email</h2>
+              <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+              <p>Questions about the site, corrections and feedback.</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <Icon name="clock" />
+            <div>
+              <h2>Phone hours</h2>
+              <p style="font-size:1.05rem;color:#0d0d0d;font-weight:600">{SITE.phoneHours}</p>
+              <p>Service area: Baytown, TX ({SITE.zips.join(', ')})</p>
+            </div>
+          </div>
+        </div>
+        <div class="disclosure">
+          <p><strong>Before you call:</strong> {DISCLOSURE} We have no office or storefront to visit. <a href="/how-it-works/">See how it works</a>.</p>
+        </div>
+        <p class="source-note">Fire still burning, gas smell, or someone hurt? Call 911. We are not an emergency service.</p>
+      </div>
+
+      <form class="form" id="contact-form" action={SITE.formEndpoint} method="post" novalidate>
+        <h2>Send a message</h2>
+        <p>Tell us what happened. Messages are read by {SITE.ownerName} and may be passed to a restoration company serving Baytown so they can call you back. For anything urgent, please phone.</p>
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="30" />
+          </div>
+          <div class="field">
+            <label for="f-zip">ZIP code</label>
+            <input id="f-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" required maxlength="5" aria-describedby="f-zip-hint" />
+            <p class="hint" id="f-zip-hint">We cover {SITE.zips.join(', ')}.</p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-type">Type of damage</label>
+          <select id="f-type" name="damage_type" required>
+            <option value="">Choose one</option>
+            <option>Water damage</option>
+            <option>Burst pipe or leak</option>
+            <option>Flood or storm water</option>
+            <option>Fire or smoke damage</option>
+            <option>Mold concern</option>
+            <option>Question about this website</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-msg">Short message</label>
+          <textarea id="f-msg" name="message" maxlength="1500" required></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="f-company">Company (leave this empty)</label>
+          <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <input type="hidden" name="started" id="f-started" value="" />
+        <p class="hint" style="margin-bottom:16px">By sending this form you agree that we may share these details with a restoration company so it can contact you. See our <a href="/privacy-policy/">privacy policy</a>.</p>
+        <button class="btn" type="submit">Send message</button>
+        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ waterTel: water.tel, waterDisplay: water.display }}>
+    (function () {
+      var form = document.getElementById('contact-form');
+      var status = document.getElementById('form-status');
+      var started = document.getElementById('f-started');
+      if (!form) return;
+      started.value = String(Date.now());
+      function show(kind, html) { status.className = 'form-status ' + kind; status.innerHTML = html; }
+      var failMsg = 'Sorry, your message could not be sent. Please call <a href="' + waterTel + '" data-offer="water" data-call-location="form-error">' + waterDisplay + '</a> instead.';
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true; btn.textContent = 'Sending...';
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+          .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+          .then(function (res) {
+            if (res.ok && res.d && res.d.ok === true) {
+              form.reset();
+              show('ok', 'Thank you. Your message was sent. If this is urgent, please also call.');
+              if (typeof window.gtag === 'function') window.gtag('event', 'contact_form_sent');
+            } else {
+              show('err', (res.d && res.d.error) ? res.d.error : failMsg);
+            }
+          })
+          .catch(function () { show('err', failMsg); })
+          .then(function () { btn.disabled = false; btn.textContent = 'Send message'; });
+      });
+    })();
+  </script>
+</Page>

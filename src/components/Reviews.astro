@@ -1,0 +1,29 @@
+---
+/*
+  REVIEWS SECTION: INTENTIONALLY NOT USED YET.
+
+  Do not import this component until real, verifiable reviews exist.
+  When they do:
+    1. Fill the `reviews` array with real reviews only (name as the reviewer
+       published it, date, source link).
+    2. Import it on the home page between the FAQ and the CTA band.
+    3. Do NOT add aggregateRating or review schema unless it follows Google's
+       review snippet guidelines for the entity being reviewed.
+
+interface Review { name: string; date: string; text: string; sourceUrl: string }
+const reviews: Review[] = [];
+*/
+---
+<!--
+<section class="section bg-dark" aria-labelledby="reviews-h">
+  <div class="wrap">
+    <p class="eyebrow">Reviews</p>
+    <h2 id="reviews-h">What callers say</h2>
+    <ul class="cards">
+      {reviews.map((r) => (
+        <li class="card"><div class="card__body"><p>{r.text}</p><h3>{r.name}</h3><a href={r.sourceUrl}>Read the original review</a></div></li>
+      ))}
+    </ul>
+  </div>
+</section>
+-->

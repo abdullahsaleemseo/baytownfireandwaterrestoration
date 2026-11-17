@@ -1,0 +1,89 @@
+---
+// Service / guide page: banner, key takeaways, article body, sidebar, FAQ, sources, CTA band.
+import Base from './Base.astro';
+import Icon from '../components/Icon.astro';
+import CallButton from '../components/CallButton.astro';
+import CtaBand from '../components/CtaBand.astro';
+import FaqList from '../components/Faq.astro';
+import { SITE, DISCLOSURE, lastUpdatedLong, type Offer } from '../lib/site';
+import type { Faq } from '../lib/schema';
+
+interface Link { href: string; label: string }
+interface Props {
+  title: string; description: string; h1: string; h1Html?: string; eyebrow: string; sub: string;
+  crumb: string; offer?: Offer;
+  serviceType?: string;            // set on real service pages to emit Service schema
+  takeaways: string[];
+  faqs?: Faq[]; faqHeading?: string;
+  related: Link[];
+  sources?: Link[];
+  sideHeading: string; sideText: string; sideLabel: string;
+  cta: { heading: string; text: string; label: string };
+}
+const {
+  title, description, h1, h1Html, eyebrow, sub, crumb, offer = 'water', serviceType, takeaways,
+  faqs, faqHeading = 'Common questions', related, sources, sideHeading, sideText, sideLabel, cta,
+} = Astro.props;
+const crumbs = [{ name: crumb, path: Astro.url.pathname }];
+const service = serviceType ? { name: h1, serviceType, description } : undefined;
+---
+<Base title={title} description={description} offer={offer} crumbs={crumbs} faqs={faqs} service={service}>
+  <section class="banner">
+    <div class="wrap"><div class="banner__in">
+      <nav aria-label="Breadcrumb">
+        <ol class="crumbs">
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">{crumb}</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 set:html={h1Html ?? h1} />
+      <p class="banner__sub">{sub}</p>
+    </div></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap article-grid">
+      <article class="prose">
+        <p class="meta-line">Last updated: <time datetime={SITE.lastUpdated}>{lastUpdatedLong}</time> &middot; Reviewed by {SITE.ownerName}</p>
+        <div class="takeaways">
+          <h2>Key takeaways</h2>
+          <ul>{takeaways.map((t) => <li set:html={t} />)}</ul>
+        </div>
+        <slot />
+        {faqs && faqs.length > 0 && (
+          <>
+            <h2>{faqHeading}</h2>
+            <FaqList items={faqs} />
+          </>
+        )}
+        <h2>Related pages</h2>
+        <ul class="related">
+          {related.map((r) => <li><a href={r.href}><Icon name="arrow" />{r.label}</a></li>)}
+        </ul>
+        {sources && sources.length > 0 && (
+          <>
+            <h2>Sources</h2>
+            <ul class="sources">
+              {sources.map((s) => <li><a href={s.href} rel="noopener">{s.label}</a></li>)}
+            </ul>
+          </>
+        )}
+      </article>
+      <aside class="sidebar" aria-label="Get connected">
+        <div class="side-box">
+          <h2>{sideHeading}</h2>
+          <p>{sideText}</p>
+          <CallButton offer={offer} label={sideLabel} location="sidebar" />
+        </div>
+        <div class="side-box side-box--light">
+          <h2>How this site works</h2>
+          <p>{DISCLOSURE}</p>
+          <p style="margin:0"><a href="/how-it-works/">See what happens when you call</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <CtaBand offer={offer} heading={cta.heading} text={cta.text} label={cta.label} />
+</Base>

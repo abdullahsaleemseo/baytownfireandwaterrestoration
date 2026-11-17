@@ -1,0 +1,19 @@
+{
+  "name": "baytownfireandwaterrestoration",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "node scripts/check.mjs",
+    "placeholders": "node scripts/check.mjs --placeholders-only"
+  },
+  "dependencies": {
+    "@fontsource/titillium-web": "^5.3.0",
+    "@fontsource/work-sans": "^5.3.0",
+    "astro": "^7.4.12",
+    "sharp": "^0.35.5"
+  }
+}
