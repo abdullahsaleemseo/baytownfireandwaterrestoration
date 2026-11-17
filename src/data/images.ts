@@ -5,6 +5,10 @@ import meterWall from '../assets/images/moisture-meter-on-water-damaged-wall.jpg
 import dryingOffice from '../assets/images/air-movers-drying-wet-office-floor.jpg';
 import movingFurniture from '../assets/images/moving-furniture-off-wet-hardwood-floor.jpg';
 import meterFloor from '../assets/images/moisture-meter-on-buckled-hardwood-floor.jpg';
+import sootKitchen from '../assets/images/soot-damaged-kitchen-stove-and-cabinets.jpg';
+import smokeRoom from '../assets/images/smoke-stained-living-room-walls-and-ceiling.jpg';
+import photoDesk from '../assets/images/photographing-fire-damaged-office-desk.jpg';
+import boardUp from '../assets/images/fire-damaged-house-boarded-up-with-roof-tarp.jpg';
 import blocks from '../assets/images/air-movers-and-furniture-blocks-on-wet-floor.jpg';
 import fireRoom from '../assets/images/fire-damaged-room-interior.jpg';
 import pipe from '../assets/images/leaking-pipe-under-sink.jpg';
@@ -23,7 +27,7 @@ export const IMG = {
     credit: 'AI-generated image',
   },
   water: { src: meterWall, alt: 'Gloved hand holding a moisture meter against a water-stained wall with the drywall cut open near the floor' },
-  fire: { src: fireRoom, alt: 'Room interior blackened by fire, with charred walls and debris on the floor' },
+  fire: { src: sootKitchen, alt: 'Kitchen cabinets, range hood and tile backsplash blackened with soot after a stove fire, with a worker in a mask taking notes' },
   pipe: { src: pipe, alt: 'Water dripping from a leaking P-trap pipe under a bathroom sink' },
   about: {
     src: bridge,
@@ -32,6 +36,9 @@ export const IMG = {
   },
   // Illustrations supplied by the site owner (AI-generated; faces blurred). Used inside service pages.
   figs: {
+    smoke: { src: smokeRoom, alt: 'Living room with smoke-stained ceiling and walls, furniture covered in plastic, an air scrubber running and a worker in protective gear wiping a window frame', caption: 'Smoke staining on a ceiling and walls, with furniture covered and an air scrubber running during cleanup.' },
+    boardUp: { src: boardUp, alt: 'Fire-damaged house with plywood over the windows and a blue tarp fastened over the burned section of roof', caption: 'Boarded windows and a roof tarp keep rain and trespassers out after a fire.' },
+    documenting: { src: photoDesk, alt: 'Person in protective coveralls and a hard hat photographing a fire-damaged desk and scorched wall', caption: 'Photograph damage before anything is moved or thrown away.' },
     waterFloor: { src: meterFloor, alt: 'Moisture meter probes pressed into a buckled, water-stained hardwood floor with an air mover running behind', caption: 'Checking moisture in a buckled hardwood floor. Drying is finished when readings match the dry parts of the house.' },
     burstPipe: { src: movingFurniture, alt: 'Worker lifting a side table off a wet hardwood floor beside a rolled-up rug, with air movers and a dehumidifier running', caption: 'After a leak: furniture lifted off the wet floor, the rug rolled up, and drying equipment running.' },
     flood: { src: blocks, alt: 'Standing water on a living room floor with sofa and table legs raised on foam blocks and air movers running', caption: 'Furniture raised on blocks above standing water while air movers run.' },
