@@ -5,7 +5,7 @@ import Icon from '../components/Icon.astro';
 import CallButton from '../components/CallButton.astro';
 import CtaBand from '../components/CtaBand.astro';
 import FaqList from '../components/Faq.astro';
-import { SITE, DISCLOSURE, lastUpdatedLong, type Offer } from '../lib/site';
+import { DISCLOSURE, type Offer } from '../lib/site';
 import type { Faq } from '../lib/schema';
 
 interface Link { href: string; label: string }
@@ -45,7 +45,6 @@ const service = serviceType ? { name: h1, serviceType, description } : undefined
   <section class="section">
     <div class="wrap article-grid">
       <article class="prose">
-        <p class="meta-line">Last updated: <time datetime={SITE.lastUpdated}>{lastUpdatedLong}</time> &middot; Reviewed by {SITE.ownerName}</p>
         <div class="takeaways">
           <h2>Key takeaways</h2>
           <ul>{takeaways.map((t) => <li set:html={t} />)}</ul>

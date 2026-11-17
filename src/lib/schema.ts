@@ -45,6 +45,7 @@ export function buildGraph(opts: {
     {
       '@type': 'WebPage', '@id': `${pageUrl}#webpage`, url: pageUrl, name: opts.title,
       description: opts.description, inLanguage: 'en-US', isPartOf: { '@id': WEBSITE_ID }, about: { '@id': ORG_ID },
+      datePublished: SITE.published,
       dateModified: SITE.lastUpdated,
     },
   ];
