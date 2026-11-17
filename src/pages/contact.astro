@@ -57,7 +57,7 @@ const fire = phone('fire');
         <p class="source-note">Fire still burning, gas smell, or someone hurt? Call 911. We are not an emergency service.</p>
       </div>
 
-      <form class="form" id="contact-form" action={SITE.formEndpoint} method="post" novalidate>
+      <form class="form" id="contact-form" action="#" method="post" novalidate>
         <h2>Send a message</h2>
         <p>Tell us what happened. Messages are read by {SITE.ownerName} and may be passed to a restoration company serving Baytown so they can call you back. For anything urgent, please phone.</p>
         <div class="field">
@@ -92,10 +92,10 @@ const fire = phone('fire');
           <textarea id="f-msg" name="message" maxlength="1500" required></textarea>
         </div>
         <div class="hp" aria-hidden="true">
-          <label for="f-company">Company (leave this empty)</label>
-          <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+          <label for="f-gotcha">Leave this field empty</label>
+          <input id="f-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
         </div>
-        <input type="hidden" name="started" id="f-started" value="" />
+        <input type="hidden" name="_subject" value="Website message: Baytown Fire and Water Restoration" />
         <p class="hint" style="margin-bottom:16px">By sending this form you agree that we may share these details with a restoration company so it can contact you. See our <a href="/privacy-policy/">privacy policy</a>.</p>
         <button class="btn" type="submit">Send message</button>
         <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
@@ -103,29 +103,33 @@ const fire = phone('fire');
     </div>
   </section>
 
-  <script is:inline define:vars={{ waterTel: water.tel, waterDisplay: water.display }}>
+  <script is:inline define:vars={{ waterTel: water.tel, waterDisplay: water.display, endpoint: SITE.formEndpoint }}>
+    /* Posts to the form service set as "formEndpoint" in src/config/site.json (for example a Formspree URL).
+       Success is shown only when the service confirms it. */
     (function () {
       var form = document.getElementById('contact-form');
       var status = document.getElementById('form-status');
-      var started = document.getElementById('f-started');
       if (!form) return;
-      started.value = String(Date.now());
       function show(kind, html) { status.className = 'form-status ' + kind; status.innerHTML = html; }
-      var failMsg = 'Sorry, your message could not be sent. Please call <a href="' + waterTel + '" data-offer="water" data-call-location="form-error">' + waterDisplay + '</a> instead.';
+      var callLink = '<a href="' + waterTel + '" data-offer="water" data-call-location="form-error">' + waterDisplay + '</a>';
+      var failMsg = 'Sorry, your message could not be sent. Please call ' + callLink + ' instead.';
+      var ready = /^https:\/\//.test(endpoint);
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!form.checkValidity()) { form.reportValidity(); return; }
+        if (form.elements['_gotcha'].value) { return; }
+        if (!ready) { show('err', 'The message form is not set up yet. Please call ' + callLink + ' instead.'); return; }
         var btn = form.querySelector('button[type="submit"]');
         btn.disabled = true; btn.textContent = 'Sending...';
-        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-          .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
           .then(function (res) {
-            if (res.ok && res.d && res.d.ok === true) {
+            if (res.ok && res.d && (res.d.ok === true || res.d.success === true)) {
               form.reset();
               show('ok', 'Thank you. Your message was sent. If this is urgent, please also call.');
               if (typeof window.gtag === 'function') window.gtag('event', 'contact_form_sent');
             } else {
-              show('err', (res.d && res.d.error) ? res.d.error : failMsg);
+              show('err', failMsg);
             }
           })
           .catch(function () { show('err', failMsg); })

@@ -22,7 +22,8 @@ Everything lives in **`src/config/site.json`**. Replace each `{{...}}` value, th
 | `phoneWater` / `phoneWaterTel` | Water damage call tracking number, display format and `+1XXXXXXXXXX` |
 | `phoneFire` / `phoneFireTel` | Fire damage number (same as water if there is only one) |
 | `phoneHours` | Hours the line is really answered. Only write "24/7" if confirmed |
-| `email` | Contact email on the domain. Also the recipient of the contact form |
+| `email` | Contact email on the domain |
+| `formEndpoint` | URL of the form service that receives contact form messages |
 | `ownerName` | Person who runs the site (About page, "Reviewed by") |
 | `social` | `[]` or a list like `[{ "name": "Facebook", "url": "https://..." }]`, real profiles only |
 | `lastUpdated` | Date shown on service pages and in the sitemap |
@@ -33,27 +34,21 @@ Phone numbers are never written in pages. They come from `site.json` through `sr
 
 `"noindex": true` in `src/config/site.json` adds a `noindex, nofollow` tag to every page and removes the sitemap line from `robots.txt`. Set it to `false` when the placeholders are filled and the site is ready to be indexed, then submit the sitemap in Google Search Console.
 
-## Deploy to Hostinger through Git
+## Deploy on Vercel through Git
 
-Hostinger shared hosting cannot run the Astro build, so GitHub builds it:
+The site is hosted on Vercel, which builds it from this repository on every push.
 
-1. Every push to `main` or `claude/gallant-carson-sg8zly` runs `.github/workflows/deploy-hostinger.yml`.
-2. The workflow builds the site, runs the checks, and commits the contents of `dist/` to the **`hostinger`** branch.
-3. Hostinger's Git feature deploys the `hostinger` branch into `public_html`.
+One-time setup:
 
-One-time setup in Hostinger hPanel (Websites > Manage > Advanced > Git):
+1. On vercel.com choose Add New > Project and import this GitHub repository. Vercel detects Astro; keep the defaults (build command `npm run build`, output `dist`).
+2. Production Branch (Project Settings > Git) should be the branch you work on, currently `claude/gallant-carson-sg8zly`. Pushes to it go live; other branches get preview URLs.
+3. Domain: Project Settings > Domains > add `baytownfireandwaterrestoration.com` and `www.baytownfireandwaterrestoration.com`, set the non-www one as primary (Vercel then redirects www to it), and enter the DNS records Vercel shows in the Hostinger DNS zone. HTTPS is issued automatically.
 
-1. Copy the SSH key hPanel shows and add it in GitHub: repo Settings > Deploy keys > Add deploy key (read-only is enough). Needed because the repository is private.
-2. Create the repository in hPanel: URL `git@github.com:abdullahsaleemseo/baytownfireandwaterrestoration.git`, branch `hostinger`, install path left empty (`public_html`, which must be empty first).
-3. Turn on Auto Deployment: copy the webhook URL from hPanel and add it in GitHub: repo Settings > Webhooks > Add webhook, content type `application/json`, "Just the push event".
+`vercel.json` sets trailing-slash URLs, security headers and long-lived caching for hashed assets. `404.html` is served automatically for unknown URLs.
 
-After that, any change pushed to the working branch goes live within a couple of minutes.
+## Contact form
 
-Manual alternative: run `npm run build` and upload the contents of `dist/` (including the hidden `.htaccess`) to `public_html`.
-
-Notes:
-- `.htaccess` forces https and non-www, and serves `404.html`.
-- The contact form posts to `/api/contact.php`, which uses PHP `mail()`. Create the mailbox in `email` and a `no-reply@` address on the domain in hPanel so mail is delivered.
+Vercel does not run PHP, so the form posts to a form service. Create a form at a service such as Formspree, then put its endpoint URL in `formEndpoint` in `src/config/site.json` (for example `https://formspree.io/f/xxxxxxx`). Until that is set, the form tells visitors it is not set up and shows the phone number. The hidden `_gotcha` field is the spam honeypot.
 
 ## Analytics
 
