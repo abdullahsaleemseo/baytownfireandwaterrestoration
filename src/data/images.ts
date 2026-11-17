@@ -24,7 +24,7 @@ export const IMG = {
     src: dryingLiving,
     alt: 'Air movers and a dehumidifier drying a wet hardwood floor in a living room while a technician checks moisture at the wall',
     short: 'Drying a water-damaged living room',
-    credit: 'AI-generated image',
+    credit: 'For illustration only',
   },
   water: { src: meterWall, alt: 'Gloved hand holding a moisture meter against a water-stained wall with the drywall cut open near the floor' },
   fire: { src: sootKitchen, alt: 'Kitchen cabinets, range hood and tile backsplash blackened with soot after a stove fire, with a worker in a mask taking notes' },
@@ -34,7 +34,7 @@ export const IMG = {
     alt: 'The Fred Hartman Bridge seen across the water from a marina in Baytown, Texas',
     caption: 'The Fred Hartman Bridge at Baytown. Photo: Patrick Feller, CC BY 2.0.',
   },
-  // Illustrations supplied by the site owner (AI-generated; faces blurred). Used inside service pages.
+  // Illustrations supplied by the site owner (faces blurred). Used inside service pages.
   figs: {
     smoke: { src: smokeRoom, alt: 'Living room with smoke-stained ceiling and walls, furniture covered in plastic, an air scrubber running and a worker in protective gear wiping a window frame', caption: 'Smoke staining on a ceiling and walls, with furniture covered and an air scrubber running during cleanup.' },
     boardUp: { src: boardUp, alt: 'Fire-damaged house with plywood over the windows and a blue tarp fastened over the burned section of roof', caption: 'Boarded windows and a roof tarp keep rain and trespassers out after a fire.' },
