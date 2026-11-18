@@ -28,9 +28,9 @@ Everything lives in **`src/config/site.json`**. Replace each `{{...}}` value, th
 
 Phone numbers are never written in pages. They come from `site.json` through `src/lib/site.ts` and `src/components/CallButton.astro`. Each layout takes an `offer` prop (`water` default, `fire` on the fire page).
 
-## Staging mode (noindex)
+## Indexing
 
-`"noindex": true` in `src/config/site.json` adds a `noindex, nofollow` tag to every page and removes the sitemap line from `robots.txt`. Set it to `false` when the placeholders are filled and the site is ready to be indexed, then submit the sitemap in Google Search Console.
+The site is live and indexable: every page has `<meta name="robots" content="index, follow, max-image-preview:large">` and a self-referencing canonical, except the 404 page, which has `noindex`. Setting `"noindex": true` in `src/config/site.json` switches every page back to `noindex, nofollow` (staging only). `robots.txt` allows crawling and lists the sitemap; sitemap `lastmod` is the build date.
 
 ## Deploy on Vercel through Git
 

@@ -57,6 +57,7 @@ for (const p of pages) {
   if (is404(p)) { if (!noindex) probs.push('404 should be noindex'); }
   else {
     if (noindex && !site.noindex) probs.push('noindex present');
+    if (!site.noindex && !/<meta name="robots" content="index, follow, max-image-preview:large"/.test(p.html)) probs.push('missing index,follow robots meta');
     if (!noindex && site.noindex) probs.push('staging mode but page is missing noindex');
     if (canon !== site.url + p.url) probs.push(`canonical ${canon}`);
     if (titles.has(t)) probs.push(`duplicate title with ${titles.get(t)}`); titles.set(t, p.url);
