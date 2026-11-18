@@ -28,6 +28,9 @@ const cur = (href: string) => (path === href ? 'page' : undefined);
         <li><a href="/contact/" aria-current={cur('/contact/')}>Contact</a></li>
       </ul>
     </nav>
-    <CallButton offer={offer} class="header-cta" label="Call 24/7: {phone}" location="header" />
+    <div class="header-cta">
+      <span class="header-cta__label">24/7 Baytown, TX help line</span>
+      <CallButton offer={offer} label="Call {phone}" location="header" />
+    </div>
   </div>
 </header>

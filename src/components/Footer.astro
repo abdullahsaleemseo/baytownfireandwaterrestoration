@@ -12,7 +12,7 @@ const years = String(year) === SITE.launchYear ? SITE.launchYear : `${SITE.launc
   <div class="wrap cols">
     <div>
       <Logo light />
-      <p class="footer-note">Plain guides and a 24/7 phone line for water, fire and smoke damage in Baytown, Texas.</p>
+      <p class="footer-note">Plain guides and a local help line for water, fire and smoke damage in Baytown, Texas.</p>
     </div>
     <nav aria-label="Quick links">
       <h2>Quick links</h2>
@@ -32,7 +32,7 @@ const years = String(year) === SITE.launchYear ? SITE.launchYear : `${SITE.launc
         <li><a href={p.tel} data-offer={p.offer} data-call-location="footer"><Icon name="phone" />{p.display}</a></li>
         <li><a href={`mailto:${SITE.email}`}><Icon name="mail" />{SITE.email}</a></li>
       </ul>
-      <p class="footer-note">{HOURS_KNOWN && <>Phone hours: {SITE.phoneHours}<br /></>}Service area: Baytown, TX ({SITE.zips.join(', ')})</p>
+      <p class="footer-note">{HOURS_KNOWN && <>Phone line answered day and night<br /></>}Service area: Baytown, TX ({SITE.zips.join(', ')})</p>
     </div>
   </div>
   <div class="wrap">

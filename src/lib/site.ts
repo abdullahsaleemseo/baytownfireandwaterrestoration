@@ -10,8 +10,8 @@ export const HOURS_KNOWN = !/\{\{/.test(site.phoneHours);
 /** Phone details for an offer. All numbers come from src/config/site.json. */
 export function phone(offer: Offer = 'water') {
   return offer === 'fire'
-    ? { display: site.phoneFire, tel: `tel:${site.phoneFireTel}`, offer, label: 'Fire damage line' }
-    : { display: site.phoneWater, tel: `tel:${site.phoneWaterTel}`, offer, label: 'Water damage line' };
+    ? { display: site.phoneFire, tel: `tel:${site.phoneFireTel}`, offer, label: 'Baytown, TX help line' }
+    : { display: site.phoneWater, tel: `tel:${site.phoneWaterTel}`, offer, label: 'Baytown, TX help line' };
 }
 
 export const lastUpdatedLong = new Date(site.lastUpdated + 'T12:00:00Z').toLocaleDateString('en-US', {

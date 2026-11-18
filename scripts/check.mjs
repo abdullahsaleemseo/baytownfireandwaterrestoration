@@ -127,8 +127,7 @@ head('Sitemap and robots.txt');
   const missing = indexable.filter((u) => !locs.includes(u)), extra = locs.filter((u) => !indexable.includes(u));
   missing.length || extra.length ? fail(`sitemap mismatch. missing: ${missing} extra: ${extra}`) : ok(`sitemap.xml lists all ${locs.length} indexable pages`);
   const rb = existsSync(join(DIST, 'robots.txt')) ? readFileSync(join(DIST, 'robots.txt'), 'utf8') : '';
-  if (site.noindex) { !/Disallow: \/\s*$/m.test(rb) ? ok('robots.txt allows crawling (staging: sitemap not advertised)') : fail('robots.txt problem'); }
-  else /Sitemap: https:\/\//.test(rb) && !/Disallow: \/\s*$/m.test(rb) ? ok('robots.txt allows crawling and points to the sitemap') : fail('robots.txt problem');
+  /Sitemap: https:\/\//.test(rb) && !/Disallow: \/\s*$/m.test(rb) ? ok('robots.txt allows crawling and points to the sitemap') : fail('robots.txt problem');
 }
 
 // ---------------------------------------------------------------- schema
@@ -190,8 +189,8 @@ head('Phone numbers');
     const want = FIRE_PAGES.includes(p.url) ? 'fire' : 'water';
     const wrong = chrome.filter((t) => t.offer !== want && !['/how-it-works/'].includes(p.url));
     if (wrong.length) { probs++; fail(`${p.url}: expected ${want} number in ${wrong.map((w) => w.loc)}`); }
-    if (p.url === '/' && !tels.some((t) => t.offer === 'fire' && t.loc === 'home-fire')) { probs++; fail('home fire section is missing the fire number'); }
-    if (p.url === '/contact/' && !(tels.some((t) => t.offer === 'fire') && tels.some((t) => t.offer === 'water'))) { probs++; fail('contact page must show both numbers'); }
+    if (p.url === '/contact/' && !tels.length) { probs++; fail('contact page has no call link'); }
+    if (/(fire|water) damage line/i.test(strip(p.html))) { probs++; fail(`${p.url}: separate line label found`); }
     // hard-coded numbers anywhere in visible text
     const hard = strip(p.html).match(/(?:\+?1[\s.-]?)?\(?\b[2-9]\d{2}\)?[\s.-]\d{3}[\s.-]\d{4}\b/g) || [];
     const allowed = [site.phoneWater, site.phoneFire];
@@ -204,7 +203,7 @@ head('Phone numbers');
     const m = s.match(/\(?\b[2-9]\d{2}\)?[\s.-]\d{3}[\s.-]\d{4}\b/);
     if (m) { probs++; fail(`hard-coded phone number in ${relative(ROOT, f)}: ${m[0]}`); }
   }
-  if (!probs) ok('all tel: links come from site.json; water default, fire on fire page, home fire section and contact page');
+  if (!probs) ok('all tel: links come from site.json, one number site-wide, no separate line labels');
 }
 
 // ---------------------------------------------------------------- duplicates

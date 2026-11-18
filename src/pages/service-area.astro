@@ -11,7 +11,7 @@ import { SITE, HOURS_KNOWN } from '../lib/site';
   h1="Baytown, TX Service Area"
   h1Html="Baytown, TX <em>Service Area</em>"
   eyebrow="Where we help"
-  sub="One city, covered properly: Baytown, Texas, across three ZIP codes. If you have water damage in Baytown, TX, or damage from a fire, the phone line is answered 24/7."
+  sub="One city, covered properly: Baytown, Texas, across three ZIP codes. If you have water damage in Baytown, TX, or damage from a fire, the phone line is answered day and night."
   crumbs={[{ name: 'Service Area', path: '/service-area/' }]}
 >
   <section class="section">
@@ -101,12 +101,12 @@ import { SITE, HOURS_KNOWN } from '../lib/site';
           <CallButton label="Call {phone}" location="sidebar" />
         </div>
         <div class="side-box side-box--light">
-          {HOURS_KNOWN ? <><h2>Phone hours</h2><p>{SITE.phoneHours}</p></> : <h2>Before you call</h2>}
+          {HOURS_KNOWN ? <><h2>Phone hours</h2><p>Answered day and night</p></> : <h2>Before you call</h2>}
           <p style="margin:0"><a href="/how-it-works/">See what happens when you call</a></p>
         </div>
       </aside>
     </div>
   </section>
 
-  <CtaBand heading="Damage in <em>Baytown?</em>" text="The line is answered 24/7. Call to get a local restoration crew scheduled for your ZIP code." label="Call {phone}" />
+  <CtaBand heading="Damage in <em>Baytown?</em>" text="The line is answered day and night. Call to get a local restoration crew scheduled for your ZIP code." label="Call {phone}" />
 </Page>

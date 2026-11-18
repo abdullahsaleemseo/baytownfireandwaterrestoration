@@ -24,7 +24,6 @@ const faqs = [
   },
 ];
 const water = phone('water');
-const fire = phone('fire');
 ---
 <Page
   title="How It Works | Baytown Fire and Water Restoration"
@@ -47,7 +46,7 @@ const fire = phone('fire');
         <ol class="steps steps--light">
           <li>
             <h3>You dial the number on this site</h3>
-            <p>There are two lines. The water damage line is {water.display}. The fire damage line is {fire.display}. Both are call tracking numbers, which lets us route the call and see which page it came from.</p>
+            <p>One number, {water.display}, covers water damage, fire and smoke damage, mold and biohazard cleanup. It is a call tracking number, which lets us route the call and see which page it came from.</p>
           </li>
           <li>
             <h3>The call is routed to a restoration company</h3>
@@ -71,7 +70,7 @@ const fire = phone('fire');
         <ul>
           <li>Run this website and publish plain-language information about water, fire and mold damage for Baytown homeowners.</li>
           <li>Provide phone numbers that connect callers with independent restoration companies serving Baytown ZIP codes {SITE.zips.join(', ')}.</li>
-          <li>Read and answer messages sent through our <a href="/contact/">contact form</a>.</li>
+          <li>Read and answer non-urgent questions sent to our <a href="/contact/">email address</a>.</li>
         </ul>
 
         <h2>What we do not do</h2>
@@ -107,14 +106,9 @@ const fire = phone('fire');
       </div>
       <aside class="sidebar" aria-label="Call">
         <div class="side-box">
-          <h2>Water damage line</h2>
-          <p>Leaks, burst pipes, flooding and mold concerns.</p>
-          <CallButton offer="water" label="Call {phone}" location="sidebar" />
-        </div>
-        <div class="side-box">
-          <h2>Fire damage line</h2>
-          <p>Fire, smoke and soot damage.</p>
-          <CallButton offer="fire" label="Call {phone}" location="sidebar" />
+          <h2>Baytown, TX help line</h2>
+          <p>Water damage, fire and smoke damage, mold and biohazard cleanup.</p>
+          <CallButton label="Call {phone}" location="sidebar" />
         </div>
         {HOURS_KNOWN && (
           <div class="side-box side-box--light">

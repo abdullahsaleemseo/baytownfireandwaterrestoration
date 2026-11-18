@@ -19,11 +19,10 @@ Everything lives in **`src/config/site.json`**. Replace each `{{...}}` value, th
 
 | Key | Meaning |
 |---|---|
-| `phoneWater` / `phoneWaterTel` | Water damage call tracking number, display format and `+1XXXXXXXXXX` |
-| `phoneFire` / `phoneFireTel` | Fire damage number (same as water if there is only one) |
+| `phoneWater` / `phoneWaterTel` | The help line, display format and `+1XXXXXXXXXX`. One number covers water, fire, mold and biohazard |
+| `phoneFire` / `phoneFireTel` | Kept equal to the water number (one number site-wide) |
 | `phoneHours` | Hours the line is really answered. Only write "24/7" if confirmed |
 | `email` | Contact email on the domain |
-| `formEndpoint` | URL of the form service that receives contact form messages |
 | `social` | `[]` or a list like `[{ "name": "Facebook", "url": "https://..." }]`, real profiles only |
 | `lastUpdated` | Date shown on service pages and in the sitemap |
 
@@ -45,9 +44,9 @@ One-time setup:
 
 `vercel.json` sets trailing-slash URLs, security headers and long-lived caching for hashed assets. `404.html` is served automatically for unknown URLs.
 
-## Contact form
+## Contact page
 
-Vercel does not run PHP, so the form posts to a form service. Create a form at a service such as Formspree, then put its endpoint URL in `formEndpoint` in `src/config/site.json` (for example `https://formspree.io/f/xxxxxxx`). Until that is set, the form tells visitors it is not set up and shows the phone number. The hidden `_gotcha` field is the spam honeypot.
+The Contact page is call-first: the help line, phone hours, a short "what to have ready" list and the email address for non-urgent questions. There is no contact form.
 
 ## Analytics
 
