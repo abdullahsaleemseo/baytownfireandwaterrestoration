@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
-import { SITE, SERVICES, GUIDES, QUICK_LINKS, DISCLOSURE, HOURS_KNOWN, phone, type Offer } from '../lib/site';
+import { SITE, SERVICES, GUIDES, QUICK_LINKS, HOURS_KNOWN, phone, type Offer } from '../lib/site';
 interface Props { offer?: Offer }
 const { offer = 'water' } = Astro.props;
 const p = phone(offer);
@@ -12,7 +12,7 @@ const years = String(year) === SITE.launchYear ? SITE.launchYear : `${SITE.launc
   <div class="wrap cols">
     <div>
       <Logo light />
-      <p class="footer-note">{DISCLOSURE} We do not perform restoration work ourselves.</p>
+      <p class="footer-note">Plain guides and a 24/7 phone line for water, fire and smoke damage in Baytown, Texas.</p>
     </div>
     <nav aria-label="Quick links">
       <h2>Quick links</h2>
@@ -34,6 +34,9 @@ const years = String(year) === SITE.launchYear ? SITE.launchYear : `${SITE.launc
       </ul>
       <p class="footer-note">{HOURS_KNOWN && <>Phone hours: {SITE.phoneHours}<br /></>}Service area: Baytown, TX ({SITE.zips.join(', ')})</p>
     </div>
+  </div>
+  <div class="wrap">
+    <p class="footer-disclosure">Calls are answered by independent, licensed local restoration companies. {SITE.brandName} is a referral service and does not perform the work. See our <a href="/disclaimer/">Disclaimer</a>.</p>
   </div>
   <div class="footer-bottom">
     <div class="wrap">

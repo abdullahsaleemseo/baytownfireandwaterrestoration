@@ -3,15 +3,15 @@ import Page from '../layouts/Page.astro';
 import CallButton from '../components/CallButton.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Icon from '../components/Icon.astro';
-import { SITE, DISCLOSURE, HOURS_KNOWN } from '../lib/site';
+import { SITE, HOURS_KNOWN } from '../lib/site';
 ---
 <Page
   title="Water Damage Baytown TX: Service Area and ZIP Codes"
-  description="Our referral line covers water damage and fire damage calls in Baytown, TX ZIP codes 77520, 77521 and 77523. See the neighborhoods and local conditions."
+  description="Water damage and fire damage help across Baytown, TX ZIP codes 77520, 77521 and 77523. See the neighborhoods, local risks and emergency contacts."
   h1="Baytown, TX Service Area"
   h1Html="Baytown, TX <em>Service Area</em>"
-  eyebrow="Where we connect callers"
-  sub="We cover one city and cover it properly: Baytown, Texas, across three ZIP codes. If you have water damage in Baytown, TX, or damage from a fire, this is where our phone line can connect you with a local company."
+  eyebrow="Where we help"
+  sub="One city, covered properly: Baytown, Texas, across three ZIP codes. If you have water damage in Baytown, TX, or damage from a fire, the phone line is answered 24/7."
   crumbs={[{ name: 'Service Area', path: '/service-area/' }]}
 >
   <section class="section">
@@ -25,13 +25,13 @@ import { SITE, DISCLOSURE, HOURS_KNOWN } from '../lib/site';
             referrerpolicy="no-referrer-when-downgrade"
             src="https://www.openstreetmap.org/export/embed.html?bbox=-95.105%2C29.675%2C-94.835%2C29.845&amp;layer=mapnik"
           ></iframe>
-          <p class="source-note">Map of the Baytown area for reference. We have no office or storefront, so there is no pin to show. Map data &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>.</p>
+          <p class="source-note">Map of the Baytown area for reference. Map data &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>.</p>
         </div>
         <div>
           <div class="area__head">
             <p class="k">ZIP codes covered</p>
             <h2 style="color:#fff;font-size:1.5rem;margin:0 0 6px">Baytown, TX</h2>
-            <p>Calls from these three ZIP codes are routed to restoration companies that serve Baytown.</p>
+            <p>Calls from these three ZIP codes reach restoration crews that work in Baytown.</p>
           </div>
           <ul class="dotlist" style="grid-template-columns:1fr">
             <li><strong>77520</strong>: south and central Baytown, including the older parts of town and the bayfront</li>
@@ -49,9 +49,9 @@ import { SITE, DISCLOSURE, HOURS_KNOWN } from '../lib/site';
   <section class="section bg-light">
     <div class="wrap article-grid">
       <div class="prose">
-        <h2>Water damage in Baytown, TX: who we can help</h2>
+        <h2>Water damage in Baytown, TX: who can get help</h2>
         <p>
-          {DISCLOSURE} That is the whole service. We do not send our own crews, and we do not pretend to have an office on every corner. We keep the area small on purpose, so that the companies on the other end of the line are ones that actually work in Baytown.
+          Any home in the three Baytown ZIP codes. The area is kept small on purpose, so the restoration crews you talk to are ones that actually work in Baytown and know its housing, its humidity and its storm seasons.
         </p>
         <p>
           If you live just outside these ZIP codes, you are welcome to call and ask. Whether a company can come out depends on who is available that day, and we would sooner tell you that than promise coverage we cannot confirm.
@@ -63,7 +63,7 @@ import { SITE, DISCLOSURE, HOURS_KNOWN } from '../lib/site';
         </p>
         <ul>
           <li><strong>Old Baytown, Goose Creek and Pelly.</strong> The streets around Texas Avenue and south toward the bay hold some of the oldest houses in the city. Older plumbing, original cast iron drains and pier-and-beam floors are common, so slow leaks under the house and aging supply lines are typical risks.</li>
-          <li><strong>Wooster and Lakewood.</strong> West-side neighborhoods near Burnet Bay and Scott Bay, with many mid-century homes. Low-lying streets close to the water have dealt with storm surge and tidal flooding.</li>
+          <li><strong>Wooster.</strong> A west-side area that was once its own community before becoming part of Baytown. Low-lying streets close to the bay have dealt with storm surge and tidal flooding.</li>
           <li><strong>The Garth Road corridor and north Baytown.</strong> Newer subdivisions on slab foundations toward Interstate 10. Typical problems in homes like these are water heater failures, supply line breaks, air conditioner drain leaks and slab leaks.</li>
           <li><strong>Cedar Bayou and the east side.</strong> Homes on both sides of Cedar Bayou, extending into Chambers County. Heavy rain and bayou flooding are the usual concerns.</li>
         </ul>
@@ -97,7 +97,7 @@ import { SITE, DISCLOSURE, HOURS_KNOWN } from '../lib/site';
       <aside class="sidebar" aria-label="Call">
         <div class="side-box">
           <h2>In 77520, 77521 or 77523?</h2>
-          <p>Call to be routed to an available restoration company serving your part of Baytown.</p>
+          <p>Call any time, day or night, to get a restoration crew scheduled for your part of Baytown.</p>
           <CallButton label="Call {phone}" location="sidebar" />
         </div>
         <div class="side-box side-box--light">
@@ -108,5 +108,5 @@ import { SITE, DISCLOSURE, HOURS_KNOWN } from '../lib/site';
     </div>
   </section>
 
-  <CtaBand heading="Damage in <em>Baytown?</em>" text="One call connects you with an independent restoration company that serves your ZIP code." label="Call {phone}" />
+  <CtaBand heading="Damage in <em>Baytown?</em>" text="The line is answered 24/7. Call to get a local restoration crew scheduled for your ZIP code." label="Call {phone}" />
 </Page>

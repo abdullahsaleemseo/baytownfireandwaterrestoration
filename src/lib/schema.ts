@@ -36,6 +36,23 @@ export function buildGraph(opts: {
       'A phone referral service that connects Baytown, Texas homeowners with independent local water and fire damage restoration companies.',
     areaServed,
   };
+  // Phone line hours. ContactPoint takes its hours through hoursAvailable
+  // (an OpeningHoursSpecification). Added only when site.json confirms 24/7.
+  if (/24\/7/.test(SITE.phoneHours)) {
+    org.contactPoint = {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      telephone: SITE.phoneWaterTel,
+      areaServed: 'US-TX',
+      availableLanguage: 'English',
+      hoursAvailable: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+      },
+    };
+  }
   // sameAs only when real profiles are listed in site.json
   if (SITE.social.length) org.sameAs = SITE.social.map((s: { url: string }) => s.url);
 

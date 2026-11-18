@@ -5,7 +5,7 @@ import Icon from '../components/Icon.astro';
 import CallButton from '../components/CallButton.astro';
 import CtaBand from '../components/CtaBand.astro';
 import FaqList from '../components/Faq.astro';
-import { DISCLOSURE, type Offer } from '../lib/site';
+import type { Offer } from '../lib/site';
 import type { Faq } from '../lib/schema';
 
 interface Link { href: string; label: string }
@@ -74,11 +74,6 @@ const service = serviceType ? { name: h1, serviceType, description } : undefined
           <h2>{sideHeading}</h2>
           <p>{sideText}</p>
           <CallButton offer={offer} label={sideLabel} location="sidebar" />
-        </div>
-        <div class="side-box side-box--light">
-          <h2>How this site works</h2>
-          <p>{DISCLOSURE}</p>
-          <p style="margin:0"><a href="/how-it-works/">See what happens when you call</a></p>
         </div>
       </aside>
     </div>

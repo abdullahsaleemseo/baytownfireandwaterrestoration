@@ -2,24 +2,26 @@
 import Page from '../layouts/Page.astro';
 import CallButton from '../components/CallButton.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { SITE, DISCLOSURE, lastUpdatedLong } from '../lib/site';
+import { SITE, lastUpdatedLong } from '../lib/site';
 ---
 <Page
   title="About Baytown Fire and Water Restoration"
-  description="Who runs Baytown Fire and Water Restoration, why the site exists, how the referral model works and the editorial standards behind every page."
+  description="Who runs Baytown Fire and Water Restoration, why the site exists, and the editorial standards behind every water and fire damage guide."
   h1="About Baytown Fire and Water Restoration"
   h1Html="About Baytown <em>Fire and Water</em> Restoration"
   eyebrow="About"
-  sub="A small, independent website with one job: help Baytown homeowners understand water and fire damage, and reach a local restoration company by phone."
+  sub="A small local website with one job: help Baytown homeowners understand water and fire damage, and get help by phone, day or night."
   crumbs={[{ name: 'About', path: '/about/' }]}
 >
   <section class="section">
     <div class="wrap article-grid">
       <div class="prose">
         <h2>What this site is</h2>
-        <p>{DISCLOSURE}</p>
         <p>
-          We are not a restoration contractor. We have no crews, no trucks and no office in Baytown. What we have is a website with carefully checked information and two phone lines that forward to restoration companies working in the area. If that is not what you expected, better that you learn it here than after you call.
+          {SITE.brandName} is a help line and guide for homeowners dealing with water, fire and smoke damage in Baytown, Texas. It publishes plain-language guides checked against official sources, and runs a phone line answered 24/7 so you can get a restoration crew scheduled when something goes wrong.
+        </p>
+        <p>
+          Calling is free. If you want to know exactly what happens after you dial, read <a href="/how-it-works/">how calling works, step by step</a>.
         </p>
 
         <h2>Who runs it</h2>
@@ -32,12 +34,7 @@ import { SITE, DISCLOSURE, lastUpdatedLong } from '../lib/site';
           When a pipe bursts or a kitchen fire is finally out, people search on their phones and call the first number they see. A lot of what they find is not what it claims to be: websites posing as local companies with invented addresses, borrowed reviews and promises nobody intends to keep.
         </p>
         <p>
-          This site takes the opposite approach. It says what it is, a referral line, and tries to earn the call by being useful: explaining what restoration involves, what Texas rules apply, how insurance usually treats the damage, and how to check the company that shows up.
-        </p>
-
-        <h2>How we are paid</h2>
-        <p>
-          Calling costs you nothing. Our income comes from the restoration companies, or the call network they work with, and they pay us when a call is connected. You never pay us anything, and we are paid the same whether you hire the company or not. If you want to know exactly what happens after you dial, you can read <a href="/how-it-works/">how our phone referral works, step by step</a>.
+          This site takes the opposite approach. It tries to earn your trust by being useful: explaining what restoration involves, what Texas rules apply, how insurance usually treats the damage, and how to check the company that shows up.
         </p>
 
         <h2>Editorial standards</h2>
@@ -59,13 +56,13 @@ import { SITE, DISCLOSURE, lastUpdatedLong } from '../lib/site';
 
         <h2>Things you should verify yourself</h2>
         <p>
-          The companies on the other end of our phone lines are independent businesses. Before hiring one, confirm its insurance, any Texas licenses that apply to your job and its references. Our guide on <a href="/choosing-a-restoration-company-baytown/">how to choose a restoration company</a> walks you through each check, and our <a href="/disclaimer/">disclaimer</a> explains the limits of our role.
+          Before hiring any restoration company, confirm its insurance, any Texas licenses that apply to your job and its references. Our guide on <a href="/choosing-a-restoration-company-baytown/">how to choose a restoration company</a> walks you through each check, and our <a href="/disclaimer/">disclaimer</a> explains the limits of our role.
         </p>
       </div>
       <aside class="sidebar" aria-label="Contact">
         <div class="side-box">
           <h2>Need help now?</h2>
-          <p>Call to be connected with an independent restoration company serving Baytown.</p>
+          <p>The line is answered 24/7. Call to get a restoration crew scheduled.</p>
           <CallButton label="Call {phone}" location="sidebar" />
         </div>
         <div class="side-box side-box--light">
@@ -76,5 +73,5 @@ import { SITE, DISCLOSURE, lastUpdatedLong } from '../lib/site';
       </aside>
     </div>
   </section>
-  <CtaBand heading="Straight answers, <em>local help</em>" text="Call to reach an independent restoration company that serves Baytown, or read the guides first. Either is fine with us." label="Call {phone}" />
+  <CtaBand heading="Straight answers, <em>local help</em>" text="Call any time, day or night, to talk to a licensed restoration pro, or read the guides first. Either is fine." label="Call {phone}" />
 </Page>

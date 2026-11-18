@@ -76,7 +76,7 @@ for (const p of pages) {
 // ---------------------------------------------------------------- banned phrases
 head('Banned phrases and unverifiable claims');
 const banned = [/in today's fast-paced/i, /look no further/i, /\bunlock\b/i, /\belevate\b/i, /\bseamless/i, /navigate the complexit/i, /trusted partner/i,
-  ...(/24\/7/.test(site.phoneHours) ? [] : [/\b24\/7\b/]), /open now/i, /\b\d+[- ]minute (response|arrival)/i, /\bour technicians/i, /our crews? (arrive|will)/i, /years? in business/i, /\bBBB\b/, /preferred vendor/i,
+  ...(/24\/7/.test(site.phoneHours) ? [] : [/\b24\/7\b/]), /open now/i, /\b\d+[- ]minute (response|arrival)/i, /\bour technicians/i, /our crews?\b/i, /our team\b/i, /we will send/i, /immediate dispatch/i, /(on site|arrive|there) (with)?in \d+ minutes/i, /look no further|rest assured|trusted partner/i, /years? in business/i, /\bBBB\b/, /preferred vendor/i,
   /we work with all insurance/i, /no out-of-pocket/i, /satisfaction guaranteed/i, /\b5[- ]star\b/i];
 let bannedHits = 0;
 for (const p of pages) for (const re of banned) { const m = strip(p.html).match(re); if (m) { bannedHits++; fail(`${p.url}: "${m[0]}"`); } }

@@ -7,16 +7,16 @@ import { SITE, HOURS_KNOWN } from '../lib/site';
 
 const about = [
   {
-    q: 'Is Baytown Fire and Water Restoration a restoration company?',
-    a: 'No. We are a referral line. We connect Baytown homeowners by phone with independent local restoration companies, and those companies do the inspection, the estimate and the work. We have no crews, equipment or office of our own.',
+    q: 'What happens when I call?',
+    a: 'You describe the damage and get a restoration crew scheduled for an inspection. Expect questions about the type of damage, when it started and whether the source is under control. The full step-by-step explanation is on <a href="/how-it-works/">how calling works</a>.',
   },
   {
     q: 'Who will actually come to my house?',
-    a: 'A technician from the independent restoration company your call is routed to. Ask for the company name on the phone, and check its insurance and any licenses that apply before work begins. It only takes a few minutes, and our guide on <a href="/choosing-a-restoration-company-baytown/">how to vet a restoration company</a> shows you what to ask.',
+    a: 'A restoration technician who inspects the damage and explains the plan. Ask for the company name on the phone, and check its insurance and any licenses that apply before work begins. It only takes a few minutes, and our guide on <a href="/choosing-a-restoration-company-baytown/">how to vet a restoration company</a> shows you what to ask.',
   },
   {
     q: 'How quickly can someone get to me?',
-    a: 'We cannot promise a time, because we do not dispatch anyone. Arrival depends on the company you reach and how busy the area is, and after a major storm or freeze every company in the region is stretched. Ask for a realistic arrival time when you are connected.',
+    a: 'Arrival times are not guaranteed, because they depend on how busy local crews are. After a major storm or freeze every restoration company in the region is stretched. Ask for a realistic arrival time on the call.',
   },
   {
     q: 'What does restoration cost?',
@@ -61,19 +61,19 @@ const all = [...about, ...damage];
 ---
 <Page
   title="FAQ | Baytown Fire and Water Restoration"
-  description="Answers to common questions about our Baytown referral line, restoration costs and timing, water damage first steps, fire cleanup, freezes and insurance."
+  description="Answers to common questions about calling for help in Baytown, restoration costs and timing, water damage first steps, fire cleanup, freezes and insurance."
   h1="Frequently Asked Questions"
   h1Html="Frequently Asked <em>Questions</em>"
   eyebrow="FAQ"
-  sub="Direct answers about how this referral line works and what to do about water, fire and smoke damage in Baytown."
+  sub="Direct answers about getting help and what to do about water, fire and smoke damage in Baytown."
   crumbs={[{ name: 'FAQ', path: '/faq/' }]}
   faqs={all}
 >
   <section class="section bg-light">
     <div class="wrap">
       <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:64rem">
-        <p class="eyebrow">About this service</p>
-        <h2>How the <em>referral line</em> works</h2>
+        <p class="eyebrow">Getting help</p>
+        <h2>Calling, timing and <em>cost</em></h2>
       </div>
       <FaqList items={about} />
     </div>
@@ -93,5 +93,5 @@ const all = [...about, ...damage];
       </div>
     </div>
   </section>
-  <CtaBand heading="Question not <em>answered?</em>" text="Call to speak with an independent restoration company serving Baytown, or send us a message through the contact page." label="Call the water damage line" />
+  <CtaBand heading="Question not <em>answered?</em>" text="Call any time, day or night, to talk to a licensed restoration pro in Baytown, or send a message through the contact page." label="Call the water damage line" />
 </Page>

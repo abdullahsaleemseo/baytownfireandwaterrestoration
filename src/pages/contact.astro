@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import Icon from '../components/Icon.astro';
-import { SITE, DISCLOSURE, HOURS_KNOWN, phone } from '../lib/site';
+import { SITE, HOURS_KNOWN, phone } from '../lib/site';
 const water = phone('water');
 const fire = phone('fire');
 ---
@@ -61,9 +61,7 @@ const fire = phone('fire');
             </div>
           </div>
         </div>
-        <div class="disclosure">
-          <p><strong>Before you call:</strong> {DISCLOSURE} We have no office or storefront to visit. <a href="/how-it-works/">See how it works</a>.</p>
-        </div>
+        <p class="contact-note">Calls are answered by independent, licensed local restoration companies. {SITE.brandName} is a referral service and does not perform the work. <a href="/how-it-works/">See how it works</a>.</p>
         <p class="source-note">Fire still burning, gas smell, or someone hurt? Call 911. We are not an emergency service.</p>
       </div>
 

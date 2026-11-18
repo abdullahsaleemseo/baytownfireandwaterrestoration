@@ -55,7 +55,10 @@ Phone clicks fire a `phone_click` event (`phone_offer`, `call_location`, `page_p
 
 ## Content rules (keep these when adding pages)
 
-- No invented addresses, reviews, ratings, licenses, certifications, response times, prices or statistics.
+- No invented addresses, reviews, ratings, licenses, certifications, prices or statistics.
+- 24/7 claims are allowed for the phone line only (confirmed, `phoneHours` is "24/7"). Describe the line and getting help scheduled, for example "24/7 water damage help line" or "Call any time, day or night, to get a restoration crew scheduled".
+- Response-time promises are still not allowed: no "crews on site in 60 minutes", "we arrive in 30 minutes" or "immediate dispatch".
+- Referral disclosure lives in the footer (every page), the Disclaimer, How It Works and the Contact page. Body copy uses a neutral brand voice ("the restoration crew", "a licensed restoration pro"), never "our team", "our technicians" or "our crew", and never contractor claims.
 - Cite official sources for safety, insurance and licensing facts.
 - No em dashes. One H1 per page. Unique title and description.
 - No blog link until at least 3 real posts exist. No reviews section until real reviews exist (`src/components/Reviews.astro` is ready but unused).
