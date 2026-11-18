@@ -24,7 +24,6 @@ Everything lives in **`src/config/site.json`**. Replace each `{{...}}` value, th
 | `phoneHours` | Hours the line is really answered. Only write "24/7" if confirmed |
 | `email` | Contact email on the domain |
 | `formEndpoint` | URL of the form service that receives contact form messages |
-| `ownerName` | Person who runs the site (About page, "Reviewed by") |
 | `social` | `[]` or a list like `[{ "name": "Facebook", "url": "https://..." }]`, real profiles only |
 | `lastUpdated` | Date shown on service pages and in the sitemap |
 

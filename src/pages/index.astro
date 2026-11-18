@@ -5,7 +5,7 @@ import Icon from '../components/Icon.astro';
 import CallButton from '../components/CallButton.astro';
 import CtaBand from '../components/CtaBand.astro';
 import FaqList from '../components/Faq.astro';
-import { SITE, DISCLOSURE, GUIDES, phone } from '../lib/site';
+import { SITE, DISCLOSURE, phone } from '../lib/site';
 import { IMG } from '../data/images';
 
 const fire = phone('fire');
@@ -141,7 +141,7 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 42vw';
         <li class="card">
           <Image src={IMG.pipe.src} alt={IMG.pipe.alt} width={640} widths={[400, 640, 900]} sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 30vw" quality={60} loading="lazy" />
           <div class="card__body">
-            <h3>Burst Pipes and Flooding</h3>
+            <h3>Burst Pipes and Leaks</h3>
             <p>Frozen pipes, failed supply lines, water heaters and slab leaks. Start with the shutoff valve, then follow these steps.</p>
             <a class="text-link" href="/burst-pipe-water-damage-baytown/">Learn more about burst pipes <Icon name="arrow" /></a>
           </div>
@@ -156,16 +156,45 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 42vw';
         </li>
       </ul>
 
-      <div id="all-services" style="margin-top:34px">
-        <h3>More services and guides</h3>
-        <ul class="dotlist">
-          <li><a href="/flood-storm-water-cleanup-baytown/">Flood and storm water cleanup</a></li>
-          <li><a href="/mold-after-water-damage-baytown/">Mold after water damage</a></li>
-          {GUIDES.map((g) => <li><a href={g.href}>{g.label === 'Insurance Claim Tips' ? 'Water damage insurance claim tips' : 'Choosing a restoration company'}</a></li>)}
-          <li><a href="/service-area/">Baytown service area</a></li>
-          <li><a href="/faq/">Frequently asked questions</a></li>
-        </ul>
-      </div>
+      <ul class="cards cards--4" id="all-services">
+        <li class="card">
+          
+          <Image src={IMG.flood.src} alt={IMG.flood.alt} width={560} widths={[360, 560, 800]} sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 23vw" quality={60} loading="lazy" />
+          <div class="card__body">
+            <h3>Flood and Storm Cleanup</h3>
+            <p>Hurricane and heavy-rain flooding, contaminated water, and why flood insurance is a separate policy.</p>
+            <a class="text-link" href="/flood-storm-water-cleanup-baytown/">Learn about flood cleanup <Icon name="arrow" /></a>
+          </div>
+        </li>
+        <li class="card">
+          
+          <Image src={IMG.mold.src} alt={IMG.mold.alt} width={560} widths={[360, 560, 800]} sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 23vw" quality={60} loading="lazy" />
+          <div class="card__body">
+            <h3>Mold After Water Damage</h3>
+            <p>Why the first 24 to 48 hours matter, when to call a professional, and Texas mold licensing rules.</p>
+            <a class="text-link" href="/mold-after-water-damage-baytown/">Learn about mold <Icon name="arrow" /></a>
+          </div>
+        </li>
+        <li class="card">
+          <span class="tag-flag tag-flag--card">Guide</span>
+          <Image src={IMG.claim.src} alt={IMG.claim.alt} width={560} widths={[360, 560, 800]} sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 23vw" quality={60} loading="lazy" />
+          <div class="card__body">
+            <h3>Insurance Claim Tips</h3>
+            <p>What to photograph, which receipts to keep, and questions to ask your adjuster.</p>
+            <a class="text-link" href="/water-damage-insurance-claim-tips/">Read the claim guide <Icon name="arrow" /></a>
+          </div>
+        </li>
+        <li class="card">
+          <span class="tag-flag tag-flag--card">Guide</span>
+          <Image src={IMG.hiring.src} alt={IMG.hiring.alt} width={560} widths={[360, 560, 800]} sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 23vw" quality={60} loading="lazy" />
+          <div class="card__body">
+            <h3>Choosing a Restoration Company</h3>
+            <p>Licenses, insurance, written estimates and the red flags to watch for after a storm.</p>
+            <a class="text-link" href="/choosing-a-restoration-company-baytown/">Read the hiring guide <Icon name="arrow" /></a>
+          </div>
+        </li>
+      </ul>
+      <p class="cards-foot">Also see the <a href="/service-area/">Baytown service area</a> and <a href="/faq/">frequently asked questions</a>.</p>
     </div>
   </section>
 

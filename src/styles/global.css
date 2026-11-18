@@ -187,7 +187,11 @@ figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
 .chips { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li { margin: 0; background: var(--light); border: 1px solid var(--line); font-family: var(--font-head); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #3c4046; padding: 6px 10px; }
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; list-style: none; margin: 0; padding: 0; }
-.card { background: var(--white); border: 1px solid var(--line); margin: 0; display: flex; flex-direction: column; }
+.card { background: var(--white); border: 1px solid var(--line); margin: 0; display: flex; position: relative; flex-direction: column; }
+.cards--4 { grid-template-columns: repeat(4, 1fr); margin-top: 18px; }
+.cards--4 .card h3 { font-size: 1.12rem; }
+.tag-flag--card { left: 12px; top: 12px; }
+.cards-foot { margin: 22px 0 0; font-size: 0.95rem; color: var(--muted); }
 .card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .card__body { padding: 22px 22px 18px; display: flex; flex-direction: column; flex: 1; }
 .card__body p { font-size: 0.93rem; color: var(--muted); flex: 1; margin-bottom: 8px; }
@@ -389,13 +393,13 @@ figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
   .feature { gap: 0; }
   .feature__img { min-height: 0; aspect-ratio: 16 / 9; }
   .sidebar { position: static; }
-  .cards, .gallery { grid-template-columns: 1fr 1fr; }
+  .cards, .cards--4, .gallery { grid-template-columns: 1fr 1fr; }
   .site-footer .wrap.cols { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
   :root { --section: 54px; --pad: 18px; --header-h: 68px; }
   body { font-size: 16px; }
-  .cards, .checklist, .field-row, .zip-list, .gallery { grid-template-columns: 1fr; }
+  .cards, .cards--4, .checklist, .field-row, .zip-list, .gallery { grid-template-columns: 1fr; }
   .trust__items { grid-template-columns: 1fr; }
   .trust__items li { border-left: 0; border-top: 1px solid var(--line); justify-content: flex-start; }
   .trust__items li:first-child { border-top: 0; }

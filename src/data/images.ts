@@ -43,6 +43,10 @@ export const IMG = {
     caption: 'The Fred Hartman Bridge at Baytown. Photo: Patrick Feller, CC BY 2.0.',
   },
   // Images supplied by the site owner (faces blurred). Used inside service pages.
+  flood: { src: blocks, alt: 'Standing water across a living room floor with sofa and table legs raised on foam blocks and air movers running' },
+  mold: { src: ceilingStain, alt: 'Bedroom with a brown water stain spreading across the ceiling and an opened ceiling section, with air movers and a dehumidifier running' },
+  claim: { src: photoDesk, alt: 'Person in protective coveralls photographing a fire-damaged desk and scorched wall to document the damage' },
+  hiring: { src: containment, alt: 'Fire-damaged kitchen with plastic containment sheeting taped up and a worker in a respirator moving an air scrubber' },
   firePanel: { src: garageFire, alt: 'Two firefighters in breathing apparatus spraying water into a burning garage attached to a house' },
   figs: {
     extraction: { src: extraction, alt: 'Workers using wet vacuums to extract standing water from a warehouse concrete floor, with a dehumidifier in the foreground', caption: 'Extraction comes first: wet vacuums pull standing water off the floor before drying equipment takes over.' },
