@@ -475,7 +475,7 @@ figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
 .call-panel { background: var(--ink); color: var(--muted-on-dark); padding: 2rem 1.8rem; position: relative; }
 .call-panel::before { content: ''; position: absolute; left: 0; top: 0; width: 64px; height: 4px; background: var(--blue); }
 .call-panel__label { font-family: var(--font-head); font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.85rem; color: var(--blue-lite); margin: 0 0 0.4rem; }
-.call-panel__number { display: inline-block; font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 2.8rem); color: var(--white); text-decoration: none; line-height: 1.1; margin-bottom: 0.6rem; }
+.call-panel__number { display: inline-flex; align-items: center; min-height: 48px; font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 2.8rem); color: var(--white); text-decoration: none; line-height: 1.1; margin-bottom: 0.6rem; }
 .call-panel__number:hover { color: var(--blue-lite); }
 .call-panel__covers { margin: 0 0 1.2rem; }
 .call-panel .btn { width: 100%; }
