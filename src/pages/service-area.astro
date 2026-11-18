@@ -3,7 +3,7 @@ import Page from '../layouts/Page.astro';
 import CallButton from '../components/CallButton.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Icon from '../components/Icon.astro';
-import { SITE, DISCLOSURE } from '../lib/site';
+import { SITE, DISCLOSURE, HOURS_KNOWN } from '../lib/site';
 ---
 <Page
   title="Water Damage Baytown TX: Service Area and ZIP Codes"
@@ -101,9 +101,8 @@ import { SITE, DISCLOSURE } from '../lib/site';
           <CallButton label="Call {phone}" location="sidebar" />
         </div>
         <div class="side-box side-box--light">
-          <h2>Phone hours</h2>
-          <p>{SITE.phoneHours}</p>
-          <p style="margin:0"><a href="/how-it-works/">How the call works</a></p>
+          {HOURS_KNOWN ? <><h2>Phone hours</h2><p>{SITE.phoneHours}</p></> : <h2>Before you call</h2>}
+          <p style="margin:0"><a href="/how-it-works/">See what happens when you call</a></p>
         </div>
       </aside>
     </div>

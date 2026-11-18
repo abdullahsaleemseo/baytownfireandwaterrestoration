@@ -5,7 +5,7 @@ import Icon from '../components/Icon.astro';
 import CallButton from '../components/CallButton.astro';
 import CtaBand from '../components/CtaBand.astro';
 import FaqList from '../components/Faq.astro';
-import { SITE, DISCLOSURE, phone } from '../lib/site';
+import { SITE, DISCLOSURE, HOURS_KNOWN, phone } from '../lib/site';
 import { IMG } from '../data/images';
 
 const fire = phone('fire');
@@ -97,7 +97,9 @@ const heroSizes = '(max-width: 980px) calc(100vw - 64px), 42vw';
           </div>
         </div>
         <ul class="trust__items">
-          <li><Icon name="clock" /><div><strong>{SITE.phoneHours}</strong><span>Phone hours</span></div></li>
+          {HOURS_KNOWN
+            ? <li><Icon name="clock" /><div><strong>{SITE.phoneHours}</strong><span>Phone hours</span></div></li>
+            : <li><Icon name="check" /><div><strong>No obligation</strong><span>You decide whether to hire</span></div></li>}
           <li><Icon name="phone" /><div><strong>Free phone consultation</strong><span>We never charge callers</span></div></li>
           <li><Icon name="pin" /><div><strong>3 Baytown ZIP codes</strong><span>{SITE.zips.join(', ')}</span></div></li>
         </ul>

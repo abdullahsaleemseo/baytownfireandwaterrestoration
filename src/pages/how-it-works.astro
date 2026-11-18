@@ -3,7 +3,7 @@ import Page from '../layouts/Page.astro';
 import CallButton from '../components/CallButton.astro';
 import CtaBand from '../components/CtaBand.astro';
 import FaqList from '../components/Faq.astro';
-import { SITE, DISCLOSURE, phone } from '../lib/site';
+import { SITE, DISCLOSURE, HOURS_KNOWN, phone } from '../lib/site';
 
 const faqs = [
   {
@@ -116,10 +116,12 @@ const fire = phone('fire');
           <p>Fire, smoke and soot damage.</p>
           <CallButton offer="fire" label="Call {phone}" location="sidebar" />
         </div>
-        <div class="side-box side-box--light">
-          <h2>Phone hours</h2>
-          <p style="margin:0">{SITE.phoneHours}</p>
-        </div>
+        {HOURS_KNOWN && (
+          <div class="side-box side-box--light">
+            <h2>Phone hours</h2>
+            <p style="margin:0">{SITE.phoneHours}</p>
+          </div>
+        )}
       </aside>
     </div>
   </section>

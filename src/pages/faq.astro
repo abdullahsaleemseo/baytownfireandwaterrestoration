@@ -3,7 +3,7 @@ import Page from '../layouts/Page.astro';
 import CallButton from '../components/CallButton.astro';
 import CtaBand from '../components/CtaBand.astro';
 import FaqList from '../components/Faq.astro';
-import { SITE } from '../lib/site';
+import { SITE, HOURS_KNOWN } from '../lib/site';
 
 const about = [
   {
@@ -22,10 +22,10 @@ const about = [
     q: 'What does restoration cost?',
     a: 'We cannot quote prices, because each company sets its own. Cost depends on how much area is affected, what kind of water or smoke is involved, how long it sat and how much has to be rebuilt. Ask for a written, itemized estimate before work starts.',
   },
-  {
+  ...(HOURS_KNOWN ? [{
     q: 'When is the phone line answered?',
     a: `Phone hours are: ${SITE.phoneHours}. Outside those hours a call may not be answered. If you face immediate danger at any hour, call 911.`,
-  },
+  }] : []),
   {
     q: 'Which areas do you cover?',
     a: `Baytown, Texas, in ZIP codes ${SITE.zips.join(', ')}. If you are not sure your street is included, check the neighborhoods on our <a href="/service-area/">Baytown service area map</a>.`,

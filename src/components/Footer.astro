@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
-import { SITE, SERVICES, GUIDES, QUICK_LINKS, DISCLOSURE, phone, type Offer } from '../lib/site';
+import { SITE, SERVICES, GUIDES, QUICK_LINKS, DISCLOSURE, HOURS_KNOWN, phone, type Offer } from '../lib/site';
 interface Props { offer?: Offer }
 const { offer = 'water' } = Astro.props;
 const p = phone(offer);
@@ -32,7 +32,7 @@ const years = String(year) === SITE.launchYear ? SITE.launchYear : `${SITE.launc
         <li><a href={p.tel} data-offer={p.offer} data-call-location="footer"><Icon name="phone" />{p.display}</a></li>
         <li><a href={`mailto:${SITE.email}`}><Icon name="mail" />{SITE.email}</a></li>
       </ul>
-      <p class="footer-note">Phone hours: {SITE.phoneHours}<br />Service area: Baytown, TX ({SITE.zips.join(', ')})</p>
+      <p class="footer-note">{HOURS_KNOWN && <>Phone hours: {SITE.phoneHours}<br /></>}Service area: Baytown, TX ({SITE.zips.join(', ')})</p>
     </div>
   </div>
   <div class="footer-bottom">

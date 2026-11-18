@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import Icon from '../components/Icon.astro';
-import { SITE, DISCLOSURE, phone } from '../lib/site';
+import { SITE, DISCLOSURE, HOURS_KNOWN, phone } from '../lib/site';
 const water = phone('water');
 const fire = phone('fire');
 ---
@@ -45,9 +45,19 @@ const fire = phone('fire');
           <div class="contact-card">
             <Icon name="clock" />
             <div>
-              <h2>Phone hours</h2>
-              <p style="font-size:1.05rem;color:#0d0d0d;font-weight:600">{SITE.phoneHours}</p>
-              <p>Service area: Baytown, TX ({SITE.zips.join(', ')})</p>
+              {HOURS_KNOWN ? (
+                <>
+                  <h2>Phone hours</h2>
+                  <p style="font-size:1.05rem;color:#0d0d0d;font-weight:600">{SITE.phoneHours}</p>
+                  <p>Service area: Baytown, TX ({SITE.zips.join(', ')})</p>
+                </>
+              ) : (
+                <>
+                  <h2>Service area</h2>
+                  <p style="font-size:1.05rem;color:#0d0d0d;font-weight:600">Baytown, TX</p>
+                  <p>ZIP codes {SITE.zips.join(', ')}</p>
+                </>
+              )}
             </div>
           </div>
         </div>

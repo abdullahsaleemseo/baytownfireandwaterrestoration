@@ -4,6 +4,9 @@ export type Offer = 'water' | 'fire';
 
 export const SITE = site;
 
+/** Phone hours are shown only after a real value replaces the placeholder in site.json. */
+export const HOURS_KNOWN = !/\{\{/.test(site.phoneHours);
+
 /** Phone details for an offer. All numbers come from src/config/site.json. */
 export function phone(offer: Offer = 'water') {
   return offer === 'fire'
