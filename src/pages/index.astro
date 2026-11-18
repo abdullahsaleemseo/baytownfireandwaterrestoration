@@ -52,21 +52,6 @@ const heroSm = await getImage({ src: IMG.hero.src, width: 560, format: 'webp', q
 const heroSrcset = `${heroSm.src} 560w, ${heroOpt.src} 900w`;
 const heroSizes = '(max-width: 980px) calc(100vw - 64px), 42vw';
 
-const toc = [
-  ['what-it-covers', 'What restoration covers'],
-  ['emergency-water-removal', 'Emergency water removal'],
-  ['services', 'Restoration services'],
-  ['fire-damage', 'Fire and smoke damage'],
-  ['signs', 'Signs you need help'],
-  ['process', 'The restoration process'],
-  ['water-categories', 'Water categories and classes'],
-  ['causes', 'Common causes in Baytown'],
-  ['cost', 'Cost and insurance'],
-  ['diy-vs-pro', 'DIY or professional'],
-  ['choosing', 'Choosing a company'],
-  ['service-area', 'Service area'],
-  ['faq', 'FAQs'],
-];
 const cardSizes = '(max-width: 640px) 100vw, (max-width: 980px) 50vw, 30vw';
 ---
 <Base
@@ -124,17 +109,6 @@ const cardSizes = '(max-width: 640px) 100vw, (max-width: 980px) 50vw, 30vw';
     </div>
   </section>
 
-  <!-- TABLE OF CONTENTS -->
-  <section class="toc-wrap" aria-label="On this page">
-    <div class="wrap">
-      <details class="toc" id="toc">
-        <summary>On this page</summary>
-        <ol>
-          {toc.map(([id, label]) => <li><a href={`#${id}`}>{label}</a></li>)}
-        </ol>
-      </details>
-    </div>
-  </section>
 
   <!-- 1. WHAT IT COVERS -->
   <section class="section" id="what-it-covers">
@@ -548,10 +522,4 @@ const cardSizes = '(max-width: 640px) 100vw, (max-width: 980px) 50vw, 30vw';
 
   <CtaBand heading="Water in the house? <em>Call now.</em>" text="The line is answered day and night. Call now to get a local restoration crew scheduled." label="Call {phone}" />
 
-  <script is:inline>
-    (function () {
-      var t = document.getElementById('toc');
-      if (t && window.matchMedia('(min-width: 981px)').matches) t.open = true;
-    })();
-  </script>
 </Base>

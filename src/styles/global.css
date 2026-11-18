@@ -444,15 +444,6 @@ figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
 .cause-title { display: block; font-family: var(--font-head); font-weight: 700; text-transform: uppercase; color: var(--ink); font-size: 1.05rem; margin-bottom: 0.3rem; }
 .box-title { font-family: var(--font-head); font-weight: 700; text-transform: uppercase; color: var(--ink); font-size: 1.15rem; margin: 0 0 12px; }
 .cause-grid p { font-size: 0.95rem; }
-.toc-wrap { padding: 2.4rem 0 0; }
-.toc { border: 1px solid var(--line); border-left: 4px solid var(--blue); background: var(--white); }
-.toc summary { cursor: pointer; list-style: none; padding: 0.9rem 1.2rem; min-height: 48px; font-family: var(--font-head); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink); display: flex; align-items: center; justify-content: space-between; }
-.toc summary::-webkit-details-marker { display: none; }
-.toc summary::after { content: '+'; color: var(--blue); font-size: 1.4rem; line-height: 1; }
-.toc[open] summary::after { content: '\2212'; }
-.toc ol { margin: 0; padding: 0 1.2rem 1rem 2.6rem; columns: 3; column-gap: 2rem; }
-.toc li { margin: 0; break-inside: avoid; }
-.toc a { display: inline-flex; align-items: center; min-height: 40px; font-weight: 600; }
 .trust__items li { padding-top: 1.4rem; padding-bottom: 1.4rem; }
 .footer-disclosure { font-size: 0.8rem; color: #aab3bd; border-top: 1px solid var(--line-dark); padding: 1rem 0; margin: 0; }
 .footer-disclosure a { display: inline; min-height: 0; text-decoration: underline; }
@@ -462,14 +453,11 @@ figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
   .takeaways--card { margin-top: 0; }
   .sticky-fig { position: static; }
   .cause-grid { grid-template-columns: 1fr 1fr; }
-  .toc ol { columns: 2; }
-  #fire-damage .split figure { order: 2; }
+    #fire-damage .split figure { order: 2; }
 }
 @media (max-width: 640px) {
   .ticks, .cause-grid { grid-template-columns: 1fr; }
-  .toc ol { columns: 1; }
-  .toc a { min-height: 44px; }
-}
+    }
 
 /* Contact page (call-first) */
 .call-panel { background: var(--ink); color: var(--muted-on-dark); padding: 2rem 1.8rem; position: relative; }
