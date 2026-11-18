@@ -29,7 +29,7 @@ export function buildGraph(opts: {
     '@id': ORG_ID,
     name: SITE.brandName,
     url: SITE.url + '/',
-    logo: { '@type': 'ImageObject', url: `${SITE.url}/logo.png`, width: 512, height: 512 },
+    logo: { '@type': 'ImageObject', url: `${SITE.url}/logo.png`, width: 1200, height: 424 },
     telephone: SITE.phoneWaterTel,
     email: SITE.email,
     description:

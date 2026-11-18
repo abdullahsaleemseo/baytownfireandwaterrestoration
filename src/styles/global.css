@@ -110,11 +110,9 @@ figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: var(--header-h); }
 .logo { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; min-height: 44px; }
 .logo:hover { color: var(--ink); }
-.logo svg { width: 2.6rem; height: 2.6rem; flex: none; }
-.logo__text { font-family: var(--font-head); font-weight: 700; text-transform: uppercase; line-height: 1.05; font-size: 1.28rem; letter-spacing: 0.01em; }
-.logo__text span { display: block; color: var(--blue); font-size: 0.72rem; letter-spacing: 0.13em; margin-top: 3px; }
+.logo img { height: 3.4rem; width: auto; display: block; }
+.site-footer .logo img { height: 3.6rem; }
 .logo--light, .logo--light:hover { color: var(--white); }
-.logo--light .logo__text span { color: var(--blue-lite); }
 
 .nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 2px; }
 .nav li { margin: 0; position: relative; }
@@ -411,10 +409,8 @@ figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
   .banner__in { padding-left: 16px; }
   .btn-row .btn, .cta-band .btn { width: 100%; }
   .btn--lg { font-size: 1.05rem; padding: 16px 20px; }
-  .logo__text { font-size: 1.08rem; }
-  .logo__text span { font-size: 0.62rem; }
-  .logo svg { width: 36px; height: 36px; }
   .dotlist { grid-template-columns: 1fr; }
+  .logo img { height: 2.75rem; }
   .map { height: 300px; }
   .feature__body { padding: 26px 22px; }
 }
