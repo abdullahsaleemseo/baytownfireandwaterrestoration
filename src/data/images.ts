@@ -19,7 +19,6 @@ import containment from '../assets/images/fire-damaged-kitchen-ceiling-with-cont
 import debrisSort from '../assets/images/sorting-debris-in-fire-damaged-living-room.jpg';
 import brickHouse from '../assets/images/fire-damaged-brick-house-boarded-and-fenced.jpg';
 import blocks from '../assets/images/air-movers-and-furniture-blocks-on-wet-floor.jpg';
-import pipe from '../assets/images/leaking-pipe-under-sink.jpg';
 import bridge from '../assets/images/fred-hartman-bridge-baytown.jpg';
 import peeling from '../assets/images/peeling-paint-water-damaged-drywall.jpg';
 import moldCeiling from '../assets/images/mold-growth-on-ceiling.jpg';
@@ -36,7 +35,7 @@ export const IMG = {
   },
   water: { src: meterWall, alt: 'Gloved hand holding a moisture meter against a water-stained wall with the drywall cut open near the floor' },
   fire: { src: sootKitchen, alt: 'Kitchen cabinets, range hood and tile backsplash blackened with soot after a stove fire, with a worker in a mask taking notes' },
-  pipe: { src: pipe, alt: 'Water dripping from a leaking P-trap pipe under a bathroom sink' },
+  pipe: { src: movingFurniture, alt: 'Worker lifting a side table off a wet hardwood floor after a leak, with a rolled-up rug and drying equipment running' },
   about: {
     src: bridge,
     alt: 'The Fred Hartman Bridge seen across the water from a marina in Baytown, Texas',
